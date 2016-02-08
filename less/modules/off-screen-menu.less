@@ -210,25 +210,25 @@
 
                 &:first-of-type {
                     .nav__item {
-                        border-top: 1px solid @border-colour;
+                        border-top: @border-default;
 
                         &:hover,
                         &:focus,
                         &:active {
-                            border-top: 1px solid @border-colour;
+                            border-top: @border-default;
                         }
                     }
                 }
 
                 .nav__item {
-                    .nav-item-off-screen-style()
+                    .nav-item-off-screen-style();
                 }
 
                 .nav__heading {
                     display: block;
                     .margins(2, 0, 0, 0);
                     padding-bottom: @dimension-padding-lg;
-                    border-bottom: 1px solid @border-colour;
+                    border-bottom: @border-default;
                 }
             }
         }
