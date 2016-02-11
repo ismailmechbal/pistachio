@@ -27,6 +27,17 @@
     border-radius: 5px;
 }
 
+.progress__bar__steps {
+    // make browsers that don't support flexbox or text-align-last justify the step descriptions
+    &:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 0;
+        visibility: hidden;
+    }
+}
+
 .progress__bar__step {
     text-align: center;
     margin-right: @dimension-padding-base;
