@@ -57,7 +57,8 @@ module.exports = function($) {
             },
             resetActiveStates: function() {
                 $dropDownTabs.each(function() {
-                    dropDownTabsBlock.element('item').attr('aria-expanded','false');
+                    // remove aria attribute, focus state, and active class
+                    dropDownTabsBlock.element('item').attr('aria-expanded','false').blur();
                     $(this).removeClass('nav__dropdown--active');
                 });
             },
@@ -105,7 +106,6 @@ module.exports = function($) {
         }
 
         function clickOffScreen(e) {
-            console.log('click');
             api.toggle($(this).parent());
             e.preventDefault(); // Stop top level links from being followed
         }
