@@ -252,14 +252,6 @@
     border-top: none;
     .transition(visibility 0s @nav-dropdown-delay);
 
-    // invisible tolerance area around dropdown menu for better use with mouse
-    &:before {
-        content: '';
-        display: block;
-        background-color: transparent;
-        .position(absolute, 0, -@nav-dropdown-buffer, -@nav-dropdown-buffer, -@nav-dropdown-buffer);
-    }
-
     a {
         text-decoration: none;
     }
