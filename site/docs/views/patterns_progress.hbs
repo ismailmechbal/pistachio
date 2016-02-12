@@ -1,13 +1,35 @@
 <h1 class="cd-text cd-title">progress indicator</h1>
 <p class="cd-text">Indicates progress along a set of steps.</p>
 
-{{{ getFile 'site/docs/views/examples/progress.html' }}}
+<h3 class="cd-text cd-title">three discrete steps with no step count</h3>
+
+<p class="cd-text">Up to three discrete progress steps are displayed at all times.</p>
+
+{{{ getFile 'site/docs/views/examples/progress/progress-discrete-three-steps.html' }}}
 {{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/progress.html' }}}
+    {{{ getFile 'site/docs/views/examples/progress/progress-discrete-three-steps.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">step count fall-back to support more than three discrete steps</h3>
+
+<p class="cd-text">Any number of discrete steps greater than three are hidden and replaced with a step count at pre-set breakpoints. This only accounts for the number of steps and does not consider the length of each label.</p>
+
+{{{ getFile 'site/docs/views/examples/progress/progress-discrete-five-steps.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/progress/progress-discrete-five-steps.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">step count only with no discrete steps</h3>
+
+<p class="cd-text">By providing no discrete steps the step count will always be displayed at each breakpoint.</p>
+
+{{{ getFile 'site/docs/views/examples/progress/progress-step-count.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/progress/progress-step-count.html' }}}
 {{/codeBlock}}
 
 <h2 class="cd-text cd-title">update progress on page load</h2>
-<p class="cd-text">To change the progress indicator between pages set the <code>width</code> of the <code>.progress__bar__fill</code> element to your desired percentage. You should also update the <code>aria-valuenow</code> attribute for improved accessiblity.</p>
+<p class="cd-text">To change the progress indicator between pages set the <code>width</code> of the <code>.progress__bar__fill</code> element to your desired percentage. You should also update the <code>aria-valuenow</code> attribute for improved accessiblity. If you're using the <code>.progress__bar__step-count</code> element then you should update the step number there too.</p>
 
 <h2 class="cd-text cd-title">update progress via JavaScript</h2>
 <p class="cd-text">Changing the width of the <code>.progress__bar__fill</code> element via JavaScript will trigger an animation on the <code>.progress__bar__fill</code> element. You should also update the <code>aria-valuenow</code> attribute at the same time for improved accessiblity.</p>
