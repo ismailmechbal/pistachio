@@ -218,6 +218,23 @@
         color: @text;
         pointer-events: none;
     }
+
+    &.button--disabled,
+    &[disabled] {
+        pointer-events: none;
+        color: fade(@text, 80%);
+        border: 1px solid fade(@border, 70%);
+        background-color: fade(@colour, 70%);
+        #gradient > .vertical(transparent, transparent);
+        .box-shadow(none);
+
+        &:active,
+        &:hover,
+        &:focus {
+            .focus-reset();
+            #gradient > .vertical(transparent, transparent);
+        }
+    }
 }
 
 .button-block() {

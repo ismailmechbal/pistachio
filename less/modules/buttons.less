@@ -9,7 +9,6 @@
 .button {
     .user-select(none);
     display: inline-block;
-    margin-bottom: 0;
     vertical-align: middle;
     touch-action: manipulation;
     cursor: pointer;
@@ -22,30 +21,6 @@
     &:hover,
     &:focus {
         text-decoration: none;
-    }
-}
-
-//
-// Disabled button
-// ===
-
-// disabled attribute can be used on buttons
-// .disabled class should be used on links as links do not have a disabled attribute
-
-.button {
-    &.button--disabled,
-    &[disabled] {
-        pointer-events: none;
-        .button-style(@colour-grey-lightest, @colour-grey-light, @colour-grey-lighter, transparent);
-        #gradient > .vertical(transparent, transparent);
-        .box-shadow(none);
-
-        &:active,
-        &:hover,
-        &:focus {
-            .focus-reset();
-            #gradient > .vertical(transparent, transparent);
-        }
     }
 }
 
@@ -124,8 +99,12 @@
 }
 
 @media (max-width: @screen-xxs-max) {
-    .button--block-xs + .button--block-xs {
-        margin-top: @dimension-padding-base;
+    .button--block-xs {
+        border-radius: @dimension-border-radius !important;
+
+        & + .button--block-xs {
+            margin-top: @dimension-padding-base;
+        }
     }
 }
 
@@ -136,8 +115,12 @@
 }
 
 @media (max-width: @screen-xs-max) {
-    .button--block-sm + .button--block-sm {
-        margin-top: @dimension-padding-base;
+    .button--block-sm {
+        border-radius: @dimension-border-radius !important;
+
+        & + .button--block-sm {
+            margin-top: @dimension-padding-base;
+        }
     }
 }
 
