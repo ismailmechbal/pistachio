@@ -1,13 +1,15 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+
+//
+// Ribbons
+// ===
+
+// Ribbon variables
 @ribbon-overlap: 0.3em;
 
-.ribbon__content {
-    background: @colour-error;
-    color: white;
-    padding: 2em/4;
-    text-align: center;
-    .box-shadow(0 @ribbon-overlap / 4 0 fade(black, 30%));
-}
-
+// Base ribbon (mandates a position modifier)
 .ribbon {
     position: absolute;
     z-index: 1;
@@ -30,6 +32,7 @@
     }
 }
 
+// Mandatory position modifiers
 .ribbon--left {
     left: -@ribbon-overlap;
     &:before {
@@ -64,4 +67,13 @@
         right: -50%;
         margin-right: -2em/2;
     }
+}
+
+// Ribbon content
+.ribbon__content {
+    background: @colour-error;
+    color: white;
+    padding: 2em/4;
+    text-align: center;
+    .box-shadow(0 @ribbon-overlap / 4 0 fade(black, 30%));
 }
