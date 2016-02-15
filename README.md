@@ -46,6 +46,7 @@ For versioned releases of modules modify the url like so: `https://pistachio-cdn
  - [Pagination](https://pistachio-cdn.graze.com/dev/css/pagination.css)
  - [Panels](https://pistachio-cdn.graze.com/dev/css/panels.css)
  - [Progress](https://pistachio-cdn.graze.com/dev/css/progress.css)
+ - [Ribbons](https://pistachio-cdn.graze.com/dev/css/ribbons.css)
  - [Stickers](https://pistachio-cdn.graze.com/dev/css/stickers.css)
  - [Tables](https://pistachio-cdn.graze.com/dev/css/tables.css)
 
@@ -86,7 +87,7 @@ To view the style guide locally:
 ~$ npm start
 ```
 
-Docs should now be visible on ```http://localhost:4000/```. 
+Docs should now be visible on ```http://localhost:4000/```.
 
 Make sure to regularly run `npm update` to keep your dependencies up to date.
 
