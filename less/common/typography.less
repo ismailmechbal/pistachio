@@ -84,3 +84,13 @@ blockquote {
 .text-muted {
     .text-muted();
 }
+
+.heading-with-meta {
+    display: inline-block;
+
+    & ~ .meta {
+        display: inline-block;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
