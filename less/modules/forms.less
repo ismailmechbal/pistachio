@@ -179,6 +179,7 @@ legend {
     margin-bottom: 0;
 }
 
+// inline form group
 .form-group--inline {
     .form-control {
         display: inline-block;
@@ -196,6 +197,58 @@ legend {
 
     .form-control--lg {
         width: 12em;
+    }
+}
+
+// .form-control elements inside a .form-group--inline can be made block (100% width) at certain breakpoints
+// mostly used for mobile so we don't account for all breakpoints
+.form-group--block-xs,
+.form-group--block-sm {
+    .form-control {
+        width: 100%;
+        margin-bottom: @dimension-padding-base;
+    }
+}
+
+@media (min-width: @screen-xs-min) {
+    .form-group--block-xs {
+        .form-control {
+            width: auto;
+            margin-bottom: 0;
+        }
+
+        .form-control--sm {
+            width: 4em;
+        }
+
+        .form-control--md {
+            width: 8em;
+        }
+
+        .form-control--lg {
+            width: 12em;
+        }
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    .form-group--block-sm {
+        .form-control {
+            width: auto;
+            margin-bottom: 0;
+        }
+
+        .form-control--sm {
+            width: 4em;
+        }
+
+        .form-control--md {
+            width: 8em;
+        }
+
+        .form-control--lg {
+            width: 12em;
+        }
     }
 }
 

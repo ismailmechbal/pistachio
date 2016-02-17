@@ -76,11 +76,6 @@
     .button-block();
 }
 
-// Vertically space out multiple block buttons
-.button--block + .button--block {
-    margin-top: @dimension-padding-base;
-}
-
 //
 // Responsive block buttons
 // ---
@@ -101,10 +96,6 @@
 @media (max-width: @screen-xxs-max) {
     .button--block-xs {
         border-radius: @dimension-border-radius !important;
-
-        & + .button--block-xs {
-            margin-top: @dimension-padding-base;
-        }
     }
 }
 
@@ -117,10 +108,6 @@
 @media (max-width: @screen-xs-max) {
     .button--block-sm {
         border-radius: @dimension-border-radius !important;
-
-        & + .button--block-sm {
-            margin-top: @dimension-padding-base;
-        }
     }
 }
 
