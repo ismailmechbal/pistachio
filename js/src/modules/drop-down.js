@@ -11,6 +11,8 @@ module.exports = function($) {
 
     // Dependencies
     var agentDetection = require('../utils/agent-detection')($);
+    var viewportDetection = require('../utils/viewport-detection')($);
+    var respond = require('../utils/respond');
 
     return function($dropDown) {
         var dropDownBlock = $dropDown.block('nav').data('p.block');
@@ -61,16 +63,13 @@ module.exports = function($) {
                     dropDownTabsBlock.element('item').attr('aria-expanded','false').blur();
                     $(this).removeClass('nav__dropdown--active');
                 });
-            },
-            getViewportSize: function() {
-                return window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
             }
         }
 
         function init() {
             // When drop-down has optional off screen menu data attribute, handle differently
             if(dropDownOffScreenArray) {
-                if ($.inArray(api.getViewportSize(), dropDownOffScreenArray) > -1) {
+                if ($.inArray(viewportDetection.getViewportSize(), dropDownOffScreenArray) > -1) {
                     api.resetAllBindings();
                     api.initOffScreen();
                 } else {
@@ -111,20 +110,9 @@ module.exports = function($) {
         }
 
         if (dropDownOffScreenArray) {
-            // Reinitialise dropdown on window resize for all but Safari iOS < 6
-            // Because Safari iOS < 6 throws erroneous resize events all the time
-            if (! agentDetection.iOSversion() || agentDetection.iOSversion() > 6) {
-                var oldBreakpoint = api.getViewportSize();
-
-                $(window).resize(function() {
-                    var newBreakpoint = api.getViewportSize();
-                    // only reinitialise if breakpoints have changed
-                    if (newBreakpoint !== oldBreakpoint) {
-                        api.init();
-                    }
-                    oldBreakpoint = newBreakpoint;
-                });
-            }
+            // Setup respond object to react to breakpoints
+            var responder = respond($, viewportDetection, agentDetection);
+            responder.respondOnBreakpoints(api.init, dropDownOffScreenArray);
         }
 
         api.init();

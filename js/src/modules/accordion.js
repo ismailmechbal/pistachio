@@ -12,6 +12,8 @@ module.exports = function($) {
 
     // Dependencies
     var agentDetection = require('../utils/agent-detection')($);
+    var viewportDetection = require('../utils/viewport-detection')($);
+    var respond = require('../utils/respond');
 
     return function($accordion) {
         // Setup accordion block
@@ -98,22 +100,19 @@ module.exports = function($) {
                 } else {
                     api.show($elem);
                 }
-            },
-            // Get value of pseudo element appended to body tag in pistachio.css
-            getViewportSize: function() {
-                return window.getComputedStyle(document.querySelector('body'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
             }
         }
 
         // initialise accordion
         function initAccordion() {
+
             $section.each(function() {
                 // Remove previous bindings
                 $(this).off('click keydown', sectionBlock.elementSelector('title') + ':first');
 
                 // Default state of accordion based on provided breakpoints
                 if(accordionBlockBreakpointsArray) {
-                    if ($.inArray(api.getViewportSize(), accordionBlockBreakpointsArray) > -1) {
+                    if ($.inArray(viewportDetection.getViewportSize(), accordionBlockBreakpointsArray) > -1) {
                         api.enable($(this));
                         api.hide($(this));
                     } else {
@@ -141,15 +140,9 @@ module.exports = function($) {
 
         // Check if we have a responsive accordion
         if (accordionBlockBreakpointsArray) {
-            // Reinitialise accordion on window resize for all but Safari iOS < 6
-            // Because Safari iOS < 6 throws erroneous resize events all the time
-            if (! agentDetection.iOSversion() || agentDetection.iOSversion() > 6) {
-                var resizeEventId;
-                $(window).resize(function() {
-                    clearTimeout(resizeEventId);
-                    resizeEventId = setTimeout(api.init, 100);
-                });
-            }
+            // Setup respond object to react to breakpoints
+            var responder = respond($, viewportDetection, agentDetection);
+            responder.respondOnBreakpoints(api.init, accordionBlockBreakpointsArray);
         }
 
         // Make api available
