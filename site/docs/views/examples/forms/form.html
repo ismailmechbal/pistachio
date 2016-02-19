@@ -1,22 +1,23 @@
 <form method="get" action="javascript:void(0);">
     <div class="form-group">
         <label for="email">email</label>
-        <input type="email" class="form-control" id="email" name="email" required="" placeholder="example@address.com">
+        <input type="email" class="form-control" id="email" name="email" required placeholder="example@address.com">
+        <small class="form-group__help-block">We will use this to validate your account.</small>
     </div>
 
     <div class="row">
         <div class="form-group col-sm-6">
             <label for="first-name">first name</label>
-            <input type="text" class="form-control" id="first-name" name="first-name" required="">
+            <input type="text" class="form-control" id="first-name" name="first-name" required>
         </div>
         <div class="form-group col-sm-6">
             <label for="last-name">last name</label>
-            <input type="text" class="form-control" id="last-name" name="last-name" required="">
+            <input type="text" class="form-control" id="last-name" name="last-name">
         </div>
     </div>
 
-    <div class="form-group">
-        <label>your title</label>
+    <fieldset class="form-group">
+        <legend>your title</legend>
 
         <div class="form-select" data-p-module="formField">
             <label class="form-select__item">
@@ -31,8 +32,8 @@
                 <input name="title-inline" type="radio" value="3">Other
             </label>
         </div>
-    </div>
+    </fieldset>
 
-    <button class="button button--secondary">back</button>
+    <button class="button">back</button>
     <button class="button button--primary button--continue" type="submit">continue</button>
 </form>

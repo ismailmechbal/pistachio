@@ -69,9 +69,10 @@ input[type="search"] {
     }
 }
 
-// Labels
+// Labels and legends
 // ---
-label {
+label,
+legend {
     display: inline-block;
     max-width: 100%; // Force IE8 to wrap long content
     margin-bottom: @dimension-padding-base;
@@ -119,7 +120,7 @@ label {
     color: @input-colour;
     background-color: @input-bg;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid @input-border;
+    border: @input-border;
     border-radius: @input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
     .drop-shadow.inside(@dimension-shadow-sm);
     .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
@@ -155,10 +156,14 @@ label {
         min-height: 10em;
     }
 
-    // Dropdowns are clickable.  Make it so...
+    // Dropdowns are clickable so should have a shadow, like buttons
     select& {
         .drop-shadow.outside(@dimension-shadow-sm);
     }
+}
+
+.form-control--center {
+    text-align: center;
 }
 
 //
@@ -174,11 +179,76 @@ label {
     margin-bottom: 0;
 }
 
+// inline form group
 .form-group--inline {
     .form-control {
         display: inline-block;
         width: auto;
         vertical-align: middle;
+    }
+
+    .form-control--sm {
+        width: 4em;
+    }
+
+    .form-control--md {
+        width: 8em;
+    }
+
+    .form-control--lg {
+        width: 12em;
+    }
+}
+
+// .form-control elements inside a .form-group--inline can be made block (100% width) at certain breakpoints
+// mostly used for mobile so we don't account for all breakpoints
+.form-group--block-xs,
+.form-group--block-sm {
+    .form-control {
+        width: 100%;
+        margin-bottom: @dimension-padding-base;
+    }
+}
+
+@media (min-width: @screen-xs-min) {
+    .form-group--block-xs {
+        .form-control {
+            width: auto;
+            margin-bottom: 0;
+        }
+
+        .form-control--sm {
+            width: 4em;
+        }
+
+        .form-control--md {
+            width: 8em;
+        }
+
+        .form-control--lg {
+            width: 12em;
+        }
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    .form-group--block-sm {
+        .form-control {
+            width: auto;
+            margin-bottom: 0;
+        }
+
+        .form-control--sm {
+            width: 4em;
+        }
+
+        .form-control--md {
+            width: 8em;
+        }
+
+        .form-control--lg {
+            width: 12em;
+        }
     }
 }
 
@@ -292,7 +362,7 @@ label ~ .form-control-feedback {
     cursor: pointer;
     padding: @dimension-padding-base @dimension-padding-lg @dimension-padding-base ((@dimension-padding-base * 2) + 20);
     border-radius: @dimension-border-radius;
-    border: 1px solid @input-border;
+    border: @input-border;
     margin-top: @dimension-padding-base;
     margin-right: @dimension-padding-base;
     margin-bottom: @dimension-padding-base;
@@ -312,7 +382,7 @@ label ~ .form-control-feedback {
 // Active state for labels when input is selected
 .form-select__item--active {
     background-color: @colour-grey-lightest;
-    box-shadow: 0 0 0 2px @colour-accent;
+    box-shadow: 0 0 0 2px @colour-brand;
     .transition(~"box-shadow ease-in-out .15s");
 }
 

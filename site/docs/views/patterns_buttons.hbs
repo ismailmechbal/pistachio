@@ -49,10 +49,20 @@
 <h3 class="cd-text cd-title">disabled</h3>
 <p class="cd-text">The <code>disabled</code> attribute should be used on buttons to make them visually disabled. For links, the <code>.button--disabled</code> class should be used as links do not have a disabled attribute.</p>
 
+<p>
 {{{ getFile 'site/docs/views/examples/buttons/button-disabled.html' }}}
+</p>
 
 {{#codeBlock}}
 {{{ getFile 'site/docs/views/examples/buttons/button-disabled.html' }}}
+{{/codeBlock}}
+
+<p>
+{{{ getFile 'site/docs/views/examples/buttons/button-disabled-primary.html' }}}
+</p>
+
+{{#codeBlock}}
+{{{ getFile 'site/docs/views/examples/buttons/button-disabled-primary.html' }}}
 {{/codeBlock}}
 
 <h3 class="cd-text cd-title">active</h3>
@@ -97,24 +107,19 @@
 <p class="cd-text">Full width block buttons will fill the width of their containing element.</p>
 
 {{{ getFile 'site/docs/views/examples/buttons/button--block.html' }}}
+{{{ getFile 'site/docs/views/examples/buttons/button--block.html' }}}
 
 {{#codeBlock}}
 {{{ getFile 'site/docs/views/examples/buttons/button--block.html' }}}
 {{/codeBlock}}
 
-<h3 class="cd-text cd-title">responsive block buttons</h3>
+<h2 class="cd-text cd-title">responsive block buttons</h2>
 <p class="cd-text">It's possible to have buttons which are only full width below certain breakpoints.</p>
 
-{{{ getFile 'site/docs/views/examples/buttons/button--block-sm.html' }}}
+{{{ getFile 'site/docs/views/examples/buttons/button--block-responsive.html' }}}
 
 {{#codeBlock}}
-{{{ getFile 'site/docs/views/examples/buttons/button--block-sm.html' }}}
-{{/codeBlock}}
-
-{{{ getFile 'site/docs/views/examples/buttons/button--block-xs.html' }}}
-
-{{#codeBlock}}
-{{{ getFile 'site/docs/views/examples/buttons/button--block-xs.html' }}}
+{{{ getFile 'site/docs/views/examples/buttons/button--block-responsive.html' }}}
 {{/codeBlock}}
 
 <h2 class="cd-text cd-title">button icons</h2>
@@ -141,4 +146,12 @@
 
 {{#codeBlock}}
 {{{ getFile 'site/docs/views/examples/buttons/button-group.html' }}}
+{{/codeBlock}}
+
+<p class="cd-text">If your button group wraps on smaller screens, consider using the responsive block button classes.</p>
+
+{{{ getFile 'site/docs/views/examples/buttons/button-group-responsive.html' }}}
+
+{{#codeBlock}}
+{{{ getFile 'site/docs/views/examples/buttons/button-group-responsive.html' }}}
 {{/codeBlock}}

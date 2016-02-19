@@ -79,7 +79,7 @@
 }
 
 .monospaced() {
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: @font-family-monospace;
 }
 
 //
@@ -218,17 +218,37 @@
         color: @text;
         pointer-events: none;
     }
+
+    &.button--disabled,
+    &[disabled] {
+        pointer-events: none;
+        color: fade(@text, 80%);
+        border: 1px solid fade(@border, 70%);
+        background-color: fade(@colour, 70%);
+        #gradient > .vertical(transparent, transparent);
+        .box-shadow(none);
+
+        &:active,
+        &:hover,
+        &:focus {
+            .focus-reset();
+            #gradient > .vertical(transparent, transparent);
+        }
+    }
 }
 
 .button-block() {
     display: block;
     width: 100%;
+    margin-top: @dimension-padding-base;
     margin-bottom: @dimension-padding-base;
 }
 
 .button-block-reset() {
     display: inline-block;
     width: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .button-icon(@icon-code: "\f054"; @position: right) {
@@ -344,9 +364,17 @@
     font-size: .75em;
 }
 
+.lowercase() {
+    text-transform: lowercase;
+}
+
+.muted() {
+    color: @colour-grey-light;
+}
+
 .meta() {
     .font-size(.875);
-    color: @colour-grey-light;
+    .muted();
 }
 
 .lead() {
