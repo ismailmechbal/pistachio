@@ -17,15 +17,18 @@
 </head>
 <body>
 
-<header class="page-section page-section--sm page-section--brand cd-text">
+<header class="page-section page-section--bleed page-section--brand cd-text">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4 text-center text-left-sm cd-text">
-                <p>graze.com | pistachio</p>
+        <div class="grid grid--bleed grid--align-center">
+            <div class="grid__col-sm-6 grid--direction-row grid--align-center">
+                <img src="/images/pistachio.svg" class="pistachio-logo">
+                <p class="pistachio-header">
+                    Pistachio
+                    <span class="pistachio-subheader">the front end framework and styleguide for graze.com</span>
+                </p>
             </div>
-
-            <div class="col-sm-8 text-center text-right-sm cd-text">
-                <ul class="nav nav--inverse cd-text--uppercase">
+            <div class="grid__col-sm-6 grid--align-self-end grid--justify-center">
+                <ul class="nav nav--tabs">
                     {{#if home}}
                     <li>
                         <a class="nav__item nav__item--pill nav__item--active" tabindex="-1" href="/">
@@ -63,7 +66,7 @@
 {{#if sidebar }}
 <div class="container">
     <div class="row">
-        <div class="col-sm-3 cd-text cd-text--uppercase">
+        <div class="col-sm-3 cd-text">
             <div class="accordion accordion--list" data-p-module="accordion" data-accordion-responsive="xxs,xs">
                 <div class="accordion__section">
                     <p class="accordion__section__title visible-xxs-block visible-xs-block">
@@ -95,7 +98,7 @@
         <div class="col-sm-9">
             <div class="cd-page-nav">
                 <p class="cd-text cd-title">contents:</p>
-                <ol class="cd-text cd-text--uppercase"></ol>
+                <ol class="cd-text"></ol>
                 <hr>
             </div>
 
