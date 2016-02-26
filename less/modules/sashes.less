@@ -3,28 +3,28 @@
 @import '../includes/mixins';
 
 //
-// Ribbons
+// Sashes
 // ===
 
-// Ribbon variables
-@ribbon-overlap: 0.3em;
+// Sash variables
+@sash-overlap: 0.3em;
 
-// Base ribbon (mandates a position modifier)
-.ribbon {
+// Base sash (mandates a position modifier)
+.sash {
     position: absolute;
     z-index: 1;
-    top: -@ribbon-overlap;
+    top: -@sash-overlap;
     .square(7em);
     overflow: hidden;
     &:before,
     &:after {
         content: '';
         position: absolute;
-        .square(@ribbon-overlap);
+        .square(@sash-overlap);
         background: darken(@colour-error, 20%);
         z-index: -1;
     }
-    .ribbon__content {
+    .sash__content {
         position: absolute;
         width: 200%;
         top: 50%;
@@ -33,8 +33,8 @@
 }
 
 // Mandatory position modifiers
-.ribbon--left {
-    left: -@ribbon-overlap;
+.sash--left {
+    left: -@sash-overlap;
     &:before {
         top: -1px;
         right: 0;
@@ -44,15 +44,15 @@
         bottom: 0;
         right: -1px;
     }
-    .ribbon__content {
+    .sash__content {
         .rotate(-45deg);
         left: -50%;
         margin-left: -2em/2;
     }
 }
 
-.ribbon--right {
-    right: -@ribbon-overlap;
+.sash--right {
+    right: -@sash-overlap;
     &:before {
         bottom: auto;
         top: -1px;
@@ -62,18 +62,18 @@
         bottom: 0;
         right: -1px;
     }
-    .ribbon__content {
+    .sash__content {
         .rotate(45deg);
         right: -50%;
         margin-right: -2em/2;
     }
 }
 
-// Ribbon content
-.ribbon__content {
+// Sash content
+.sash__content {
     background: @colour-error;
     color: white;
     padding: 2em/4;
     text-align: center;
-    .box-shadow(0 @ribbon-overlap / 4 0 fade(black, 30%));
+    .box-shadow(0 @sash-overlap / 4 0 fade(black, 30%));
 }
