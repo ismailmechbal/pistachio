@@ -113,13 +113,9 @@ To compile the JavaScript:
 
 The projects documentation and style guide is deployed to Heroku on every push to the master branch and is visible at http://pistachio.graze.com/.
 
-Follow these simple steps to deploy a new version:
+Follow these simple steps to deploy a versioned release:
 
-1. Update `version` within `package.json`
-2. Commit the changes to a new branch ([with a good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html))
-3. Push the new branch (`git push`)
-4. [Open a pull request](https://github.com/graze/pistachio/pull/new/master) and get it merged
-5. Tag the change (`git tag v0.0.x` )
-6. Push the tag (`git push --tags`)
-7. Travis CI will publish the new version to CloudFront
-8. [Update the release notes on GitHub](https://github.com/graze/pistachio/releases)
+1. Run `npm version -m ":rocket: Release %s."` on the `master` branch with a [semver](http://semver.org/) as it's argument (e.g. `npm version -m ":rocket: Release %s." 1.0.0`)
+2. A new `release/` branch, and tag, will be published to GitHub, open a PR to merge the branch into `master`
+3. [The Travis CI build for the tag](https://travis-ci.org/graze/pistachio/builds) will publish the resources to s3 and trigger Heroku to deploy the style guide
+4. [Update the release notes on GitHub](https://github.com/graze/pistachio/releases), not forgetting the html snippets printed out in the build

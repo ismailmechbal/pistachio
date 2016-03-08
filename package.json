@@ -7,7 +7,9 @@
     "postinstall": "gulp build",
     "start": "node ./site/docs/app.js",
     "test": "gulp build && gulp dev:profile && npm run test:js",
-    "test:js": "node ./tests/js/jasmine.js"
+    "test:js": "node ./tests/js/jasmine.js",
+    "preversion": "./build/pre-version.sh",
+    "postversion": "./build/post-version.sh"
   },
   "repository": {
     "type": "git",
