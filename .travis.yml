@@ -11,13 +11,6 @@ script:
   - npm test
 
 deploy:
-  # Deploy resources on master branch pushes.
-  - provider: script
-    skip_cleanup: true
-    script: gulp publish
-    on:
-      branch: master
-
   # Deploy resources on a new release.
   - provider: script
     skip_cleanup: true
@@ -25,14 +18,6 @@ deploy:
     on:
       tags: true
       condition: "$TRAVIS_TAG = $(grep -m 1 version package.json | awk '{ print \"v\" $2 }' | sed 's/[\",]//g')"
-
-  # Deploy the style guide on master branch pushes.
-  - provider: heroku
-    api_key:
-      secure: "SAoCtu3N0BEwjo1yiMkESANSckYGx9718PgusJLUu9Pe0N/yRG8cU3iTAFMHt5ow4lY1GJquJBoIotjgF4LFs6B3AwSuwGTHatcTLtXwc/xLxB7DBLOObitwVy66CZXiJ5qG1KBuHaLhW/bNOIoXdrFfGuLhPHpOAjJs44tAS9joCPkpAt4maMQOmkzdfDMSEnT7NZRBWAOMdQm6QEXt6sTFllIfIqpxemB/YTWjnHBUk0JmDCfs7rfD6CkDwXZqeJERvUyo5kV3GP/FuFUw/MJyw+AuOAf6Cj8MdsCt1mo5hHgq6vHRBzm3CYV6My9n8q9aOezvoiGW8h+TmmymdMrR9iiGR3XgJT2oLSYgSRPsj34Nbia/GTlptqfk+Bub/WDkhg9dx+auD9U6vX/wyP5yrbDI+L0LqWaF/KdkEE72lraXTtXEDkna6qAwOIqZmmmAWnaF8Ua+xkChu7lMhq1Za8lYyr4r+esV/MjgGwiNE+IS85dImYb2rB5SlIol7vwJY3P83WIma+j5NcYA3V2toCJAeJi/Bbib34q4PAr2MAq3ymSgwdnR9tYVsHEjbIsSov5Sc1Fr0SjAi6zAXk2Xj2m4CiU2XiMlD0mzPhj8xafpYpBC2xkM41ffqwjV4gSsNqq78qOwRB+ckTxfVU7A3UFSdA3SkJ7+Sazx/8I="
-    app: graze-pistachio
-    on:
-      branch: master
 
 cache:
   directories:
