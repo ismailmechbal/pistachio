@@ -16,3 +16,5 @@ The style sheet and javascript files have been uploaded to s3 and can be accesse
 
 If you merged into master as well
 the style guide would also be updated on Heroku. _As long as all the tests pass!_
+
+Now go check out [`package.json`](package.json), [`build/pre-version.sh`](build/pre-version.sh), and [`build/post-version.sh`](build/post-version.sh)!
