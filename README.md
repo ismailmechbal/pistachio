@@ -113,6 +113,8 @@ To compile the JavaScript:
 
 The projects documentation and style guide is deployed to Heroku on every push to the master branch and is visible at http://pistachio.graze.com/.
 
+In order to release you'll need `npm@^3.0`, you can get the latest by running `npm install -g npm@latest`.
+
 Follow these simple steps to deploy a versioned release:
 
 1. Run `npm version -m ":rocket: Release %s."` on the `master` branch with a [semver](http://semver.org/) as it's argument (e.g. `npm version -m ":rocket: Release %s." 1.0.0`)
