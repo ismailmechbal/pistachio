@@ -196,7 +196,7 @@ gulp.task('publish', ['build'], function() {
                 Bucket: 'graze.pistachio',
                 Key: file.path,
                 ContentType: mime.lookup(file.path),
-                CacheControl: ('for-real' in argv) ? 'public max-age=31104000' : 'no-cache',
+                CacheControl: ('for-real' in argv) ? 'public, max-age=31540000, stale-while-revalidate=2628000, stale-if-error=2628000' : 'public, max-age=86400, must-revalidate',
                 Body: file.contents
             };
 
