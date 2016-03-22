@@ -4,7 +4,7 @@
 //
 //  States
 // ---
-.tab-focus(@colour: @link-colour, @text-colour: @colour-white) {
+.tab-focus-state(@colour: @link-colour, @text-colour: @colour-white) {
     outline: none;
     background-color: @colour;
     color: @text-colour;
@@ -177,7 +177,7 @@
     &:hover,
     &:focus,
     &:active {
-        .tab-focus(@colour-grey-lightest, @text-colour);
+        .tab-focus-state(@colour-grey-lightest, @text-colour);
         .focus-reset();
         border: none;
         border-bottom: 1px solid @border-colour;
@@ -441,7 +441,7 @@
 
         &:focus,
         &:active {
-            .tab-focus(@text-colour);
+            .tab-focus-state(@text-colour);
         }
     }
 
@@ -560,7 +560,7 @@
     &:hover,
     &:focus,
     &:active {
-        .tab-focus(@colour-grey-lightest, @text-colour);
+        .tab-focus-state(@colour-grey-lightest, @text-colour);
         .focus-reset();
     }
 }
