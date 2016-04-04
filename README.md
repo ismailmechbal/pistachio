@@ -84,6 +84,7 @@ To view the style guide locally:
 
 ```bash
 ~$ npm install
+~$ gulp build
 ~$ npm start
 ```
 
