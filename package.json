@@ -1,10 +1,10 @@
 {
   "name": "pistachio",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "graze front end framework",
   "main": "index.js",
   "scripts": {
-    "postinstall": "gulp build",
+    "postinstall": "if $BUILD_ASSETS; then gulp build; fi",
     "start": "node ./site/docs/app.js",
     "test": "gulp build && gulp dev:profile && npm run test:js",
     "test:js": "node ./tests/js/jasmine.js",
