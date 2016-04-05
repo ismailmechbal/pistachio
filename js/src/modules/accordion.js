@@ -44,10 +44,11 @@ module.exports = function($) {
                 block.addModifier('enabled');
 
                 // setup visual appearance/accessiblity attributes
-                $elem.attr('id',blockId);
+                block.element('title').attr('id',titleId);
                 block.element('title').addClass(block.elementClass('title--icon'));
                 block.element('title').attr('tabindex','0');
                 block.element('title').attr('aria-controls',contentId);
+                block.element('content').attr('id',contentId);
                 block.element('content').attr('aria-labelledby',titleId);
                 if (blockHasSiblings) {
                     $elem.parent('.accordion').attr('role','tablist');
@@ -64,10 +65,11 @@ module.exports = function($) {
                 block.removeModifier('enabled');
 
                 // remove visual appearance/accessiblity attributes
-                $elem.removeAttr('id');
+                block.element('title').removeAttr('id');
                 block.element('title').removeClass(block.elementClass('title--icon'));
                 block.element('title').removeAttr('tabIndex');
                 block.element('title').removeAttr('aria-controls');
+                block.element('content').removeAttr('id');
                 block.element('content').removeAttr('aria-labelledby');
                 if (blockHasSiblings) {
                     $elem.parent('.accordion').removeAttr('role');

@@ -67,32 +67,34 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3 cd-text">
-            <div class="accordion accordion--list" data-p-module="accordion" data-accordion-responsive="xxs,xs">
-                <div class="accordion__section">
-                    <p class="accordion__section__title visible-xxs-block visible-xs-block">
+            <ul class="list-unstyled accordion accordion--list" data-p-module="accordion" data-accordion-responsive="xxs,xs">
+                <li class="accordion__section">
+                    <section class="accordion__section__title visible-xxs-block visible-xs-block">
                         categories
-                    </p>
+                    </section>
                     {{#if subpages }}
-                    <ul class="nav nav--vertical accordion__section__content accordion__section__content--bleed">
-                        {{#each subpages}}
-                            {{#if current}}
-                                <li>
-                                    <a class="nav__item nav__item--pill nav__item--active" tabindex="-1" href="/{{ path }}">
-                                        {{ name }}
-                                    </a>
-                                </li>
-                            {{else}}
-                                <li>
-                                    <a class="nav__item nav__item--pill" href="/{{ path }}">
-                                        {{ name }}
-                                    </a>
-                                </li>
-                            {{/if}}
-                        {{/each}}
-                    </ul>
+                    <div class="accordion__section__content accordion__section__content--bleed">
+                        <ul class="nav nav--vertical">
+                            {{#each subpages}}
+                                {{#if current}}
+                                    <li>
+                                        <a class="nav__item nav__item--pill nav__item--active" tabindex="-1" href="/{{ path }}">
+                                            {{ name }}
+                                        </a>
+                                    </li>
+                                {{else}}
+                                    <li>
+                                        <a class="nav__item nav__item--pill" href="/{{ path }}">
+                                            {{ name }}
+                                        </a>
+                                    </li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
                     {{/if}}
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
 
         <div class="col-sm-9">
