@@ -12,6 +12,7 @@ var app = site({
 // Setup specific page context
 pageContext.setPageVars('patterns', {
     sidebar: true,
+    colours: require('./data/colours'),
     icons: require('./data/icons'),
     stickers: require('./data/stickers')
 });

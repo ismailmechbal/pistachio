@@ -1,100 +1,65 @@
 <h1 class="cd-text cd-title">colour palette</h1>
 
+<p class="cd-text"></p>
+
 <h2 class="cd-text cd-title">brand colours</h2>
 
 <div class="row">
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">primary</h4>
+    <div class="col-xs-12">
+        <h3 class="cd-text cd-title">primary</h3>
+    </div>
 
-        <div class="cd-colour-block" style="background: #00989e;">
-            <code class="cd-colour-block__label">#00989e</code>
+    {{#each colours.brand.primary}}
+    <div class="col-xs-6">
+        <h3 class="cd-text cd-title">{{ title }}</h3>
+        <div class="cd-colour-block" style="background: #{{ hex }};">
+            <code class="cd-colour-block__label">#{{ hex }}</code><br>
+            <code class="cd-colour-block__label">{{ variable }}</code>
         </div>
     </div>
+    {{/each}}
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3 class="cd-text cd-title">secondary</h3>
+        <p class="cd-text">Use the secondary colour palette sparingly and only to compliment the primary brand colour.</p>
+    </div>
+
+    {{#each colours.brand.secondary}}
+    <div class="col-xs-6">
+        <h3 class="cd-text cd-title">{{ title }}</h3>
+        <div class="cd-colour-block" style="background: #{{ hex }};">
+            <code class="cd-colour-block__label">#{{ hex }}</code><br>
+            <code class="cd-colour-block__label">{{ variable }}</code>
+        </div>
+    </div>
+    {{/each}}
 </div>
 
 <h2 class="cd-text cd-title">UI colours</h2>
 <div class="row">
+    {{#each colours.ui}}
     <div class="col-xs-6">
-        <h4 class="cd-text cd-title">accent</h4>
-
-        <div class="cd-colour-block" style="background: #5d9f31;">
-            <code class="cd-colour-block__label">#5d9f31</code>
+        <h3 class="cd-text cd-title">{{ title }}</h3>
+        <div class="cd-colour-block" style="background: #{{ hex }};">
+            <code class="cd-colour-block__label">#{{ hex }}</code><br>
+            <code class="cd-colour-block__label">{{ variable }}</code>
         </div>
     </div>
-
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">error</h4>
-
-        <div class="cd-colour-block" style="background: #ab1818;">
-            <code class="cd-colour-block__label">#ab1818</code>
-        </div>
-    </div>
+    {{/each}}
 </div>
 
 <h2 class="cd-text cd-title">monochrome colours</h2>
 
 <div class="row">
+    {{#each colours.monochrome}}
     <div class="col-xs-6">
-        <h4 class="cd-text cd-title">white</h4>
-
-        <div class="cd-colour-block" style="background: #ffffff;">
-            <code class="cd-colour-block__label">#ffffff</code>
+        <h3 class="cd-text cd-title">{{ title }}</h3>
+        <div class="cd-colour-block" style="background: #{{ hex }};">
+            <code class="cd-colour-block__label">#{{ hex }}</code><br>
+            <code class="cd-colour-block__label">{{ variable }}</code>
         </div>
     </div>
-
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">black</h4>
-
-        <div class="cd-colour-block" style="background: #000000;">
-            <code class="cd-colour-block__label">#000000</code>
-        </div>
-    </div>
-
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">grey darkest</h4>
-
-        <div class="cd-colour-block" style="background: #222222;">
-            <code class="cd-colour-block__label">#222222</code>
-        </div>
-    </div>
-
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">grey dark</h4>
-
-        <div class="cd-colour-block" style="background: #333333;">
-            <code class="cd-colour-block__label">#333333</code>
-        </div>
-    </div>
-
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">grey</h4>
-
-        <div class="cd-colour-block" style="background: #555555;">
-            <code class="cd-colour-block__label">#555555</code>
-        </div>
-    </div>
-
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">grey light</h4>
-
-        <div class="cd-colour-block" style="background: #888888;">
-            <code class="cd-colour-block__label">#888888</code>
-        </div>
-    </div>
-
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">grey lighter</h4>
-
-        <div class="cd-colour-block" style="background: #cccccc;">
-            <code class="cd-colour-block__label">#cccccc</code>
-        </div>
-    </div>
-
-    <div class="col-xs-6">
-        <h4 class="cd-text cd-title">grey lightest</h4>
-
-        <div class="cd-colour-block" style="background: #eeeeee;">
-            <code class="cd-colour-block__label">#eeeeee</code>
-        </div>
-    </div>
+    {{/each}}
 </div>
