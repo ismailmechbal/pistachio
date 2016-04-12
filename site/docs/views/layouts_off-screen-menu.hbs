@@ -1,21 +1,24 @@
 <input type="checkbox" id="off-screen-trigger" class="off-screen-trigger" aria-hidden="true" data-p-module="offScreen">
 
-<div class="off-screen-header page-section page-section--xs">
-    <div class="container">
-        <div class="grid grid--align-center grid--bleed">
-            <div class="grid__col-auto off-screen-trigger-spacer">
-                <label for="off-screen-trigger" class="off-screen-trigger-label" aria-hidden="true" onclick>
-                    <i class="fa fa-bars fa-2x"></i>
-                    <span class="sr-only">toggle menu</span>
-                </label>
-            </div>
-            <div class="grid__col-auto off-screen-header__logo">
-                <a href="#" class="off-screen-header__logo__link pull-left link-img">
-                    <img src="https://cdn.graze.com/static/11-1443792395/images/graze/en/header/logo.png" class="off-screen-header__logo__link__img">
-                </a>
-            </div>
-            <div class="grid__col-auto grid--align-end pull-right">
-                {{{ getFile 'site/docs/views/examples/nav/nav-block-off-screen.html' }}}
+<div class="off-screen-header">
+    <div class="page-section page-section--bleed">
+        {{{ getFile 'site/docs/views/examples/nav/nav-top-tabs.html' }}}
+    </div>
+    <div class="page-section page-section--xs">
+        <div class="container">
+            <nav class="grid grid--bleed grid--align-center">
+                <div class="off-screen-trigger-spacer grid__col-auto">
+                    <label for="off-screen-trigger" class="off-screen-trigger-label" onclick="">
+                        <i class="fa fa-reorder fa-2x"></i>
+                        <span class="sr-only">toggle menu</span>
+                    </label>
+                </div>
+                <div class="grid__col-auto grid--direction-row grid--justify-center off-screen-header__logo">
+                    <a href="#0" class="off-screen-header__logo__link link-img">
+                        <img src="https://cdn.graze.com/static/15-1460367531/images/graze/en/header/logo.png" class="off-screen-header__logo__link__img" alt="home page">
+                    </a>
+                </div>
+                {{{ getFile 'site/docs/views/examples/nav/nav-on-screen.html' }}}
             </div>
         </div>
     </div>
@@ -26,15 +29,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    {{{ getFile 'site/docs/views/examples/nav/nav-block-inactive.html' }}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="page-section page-section--alternate page-section--bleed">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
+                    {{{ getFile 'site/docs/views/examples/nav/nav-off-screen.html' }}}
                     {{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd-offscreen.html' }}}
                 </div>
             </div>
@@ -42,11 +37,15 @@
     </div>
 </div>
 
-<div class="page-wrapper container">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1 class="cd-text cd-title">Off screen menu</h1>
-            <p class="cd-text">Resize your browser to below 768px viewport width to see the off screen menu in action. full documentation is available on <a href="/patterns/off-screen-menu">the off-screen menu page</a>.</p>
+<div class="page-wrapper page-section--alternate">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="cd-text cd-title">Off screen menu</h1>
+                <p class="cd-text">Resize your browser to below 768px viewport width to see the off screen menu in action. full documentation is available on <a href="/patterns/off-screen-menu">the off-screen menu page</a>.</p>
+            </div>
         </div>
     </div>
 </div>
+
+

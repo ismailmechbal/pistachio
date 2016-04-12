@@ -35,7 +35,7 @@
 }
 
 //
-// Off screen menu header
+// Off screen menu and header
 // ---
 .off-screen-header {
     min-height: @off-screen-header-min-height;
@@ -43,7 +43,7 @@
 
 .off-screen-header__logo {
     min-width: 150px;
-    max-width: 250px;
+    max-width: 150px;
 }
 
 .off-screen-header__logo__link {
@@ -57,6 +57,15 @@
     zoom: 1;
     max-height: 100%;
     max-width: 100%;
+}
+
+//
+// Overrides specific to the off-screen-menu
+// ---
+.off-screen-menu {
+    .nav--dropdown {
+        margin-left: -(@grid-gutter-width / 2);
+    }
 }
 
 //
@@ -124,20 +133,24 @@
     }
 
     //
+    // Center logo on mobile
+    // ---
+    .off-screen-header__logo {
+        max-width: 100%;
+    }
+
+    //
     // Make trigger and spacer visible
     // ---
     .off-screen-trigger-spacer {
         display: inline-block;
-        max-width: @off-screen-label-width;
-        margin-right: 1em;
     }
 
     .off-screen-trigger-label {
         z-index: @z-index-top;
-        display: block;
-        width: @off-screen-label-width;
+        display: inline-block;
         margin: 0;
-        text-align: center;
+        margin-right: @off-screen-label-spacer;
         color: @colour-brand;
 
         &:hover {
@@ -202,6 +215,7 @@
         .nav {
             text-align: left;
             text-align: start;
+            display: block;
 
             > li {
                 display: block;
@@ -238,6 +252,8 @@
         // warning - this gets very specific
         // ---
         .nav--dropdown {
+            margin-left: 0;
+
             .nav__dropdown {
                 display: block;
                 float: none;
