@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<header class="page-section page-section--bleed page-section--brand cd-text">
+<header class="page-section page-section--bleed page-section--alternate cd-text">
     <div class="container">
         <div class="grid grid--bleed">
             <div class="grid__col-sm-6 grid--direction-row grid--align-center">
@@ -31,13 +31,13 @@
                 <ul class="nav nav--tabs nav--tabs--sm">
                     {{#if home}}
                     <li>
-                        <a class="nav__item nav__item--pill nav__item--active" tabindex="-1" href="/">
+                        <a class="nav__item nav__item--active" tabindex="-1" href="/">
                             about
                         </a>
                     </li>
                     {{else}}
                     <li>
-                        <a class="nav__item nav__item--pill" href="/">
+                        <a class="nav__item" href="/">
                             about
                         </a>
                     </li>
@@ -45,13 +45,13 @@
                     {{#each pages}}
                         {{#if current}}
                         <li>
-                            <a class="nav__item nav__item--pill nav__item--active" tabindex="-1" href="/{{ path }}">
+                            <a class="nav__item nav__item--active" tabindex="-1" href="/{{ path }}">
                                 {{ name }}
                             </a>
                         </li>
                         {{else}}
                         <li>
-                            <a class="nav__item nav__item--pill" href="/{{ path }}">
+                            <a class="nav__item" href="/{{ path }}">
                                 {{ name }}
                             </a>
                         </li>
@@ -78,13 +78,13 @@
                             {{#each subpages}}
                                 {{#if current}}
                                     <li>
-                                        <a class="nav__item nav__item--pill nav__item--active" tabindex="-1" href="/{{ path }}">
+                                        <a class="nav__item nav__item--active" tabindex="-1" href="/{{ path }}">
                                             {{ name }}
                                         </a>
                                     </li>
                                 {{else}}
                                     <li>
-                                        <a class="nav__item nav__item--pill" href="/{{ path }}">
+                                        <a class="nav__item" href="/{{ path }}">
                                             {{ name }}
                                         </a>
                                     </li>
