@@ -52,21 +52,21 @@ a.panel {
 }
 
 .panel__header {
-    padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
+    padding: @dimension-padding-lg;
     border-radius: (@dimension-border-radius - 1) (@dimension-border-radius - 1) 0 0;
     background-color: @colour-grey-lightest;
     font-weight: @font-weight-strong;
 }
 
 .panel__footer {
-    padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
+    padding: @dimension-padding-lg;
     border-radius: 0 0 (@dimension-border-radius - 1) (@dimension-border-radius - 1);
     background-color: @colour-grey-lightest;
 }
 
 .panel__body {
     .inner-content-fix();
-    padding: @dimension-spacing-default;
+    padding: @dimension-padding-lg;
 }
 
 //
@@ -107,7 +107,7 @@ a.grid__panel {
 
 .grid__panel-top {
     .inner-content-fix();
-    padding: @dimension-spacing-default;
+    padding: @dimension-padding-lg @dimension-padding-lg 0;
     border: 1px solid @colour-grey-lighter;
     border-bottom: none;
     border-radius: @dimension-border-radius @dimension-border-radius 0 0;
@@ -115,7 +115,7 @@ a.grid__panel {
 
 .grid__panel-header {
     .inner-content-fix();
-    padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
+    padding: @dimension-padding-lg;
     border: 1px solid @colour-grey-lighter;
     border-bottom: none;
     border-radius: @dimension-border-radius @dimension-border-radius 0 0;
@@ -127,7 +127,7 @@ a.grid__panel {
 
 .grid__panel-body {
     .inner-content-fix();
-    padding: @dimension-spacing-default;
+    padding: @dimension-padding-lg;
     border: 1px solid @colour-grey-lighter;
     border-top: none;
     border-bottom: none;
@@ -136,15 +136,13 @@ a.grid__panel {
 
 .grid__panel-footer {
     .align-items(center);
-    padding: 0 @dimension-spacing-default (@dimension-spacing-default / 2);
+    padding: 0 @dimension-padding-lg @dimension-padding-lg;
     border: 1px solid @colour-grey-lighter;
     border-top: none;
     border-radius: 0 0 @dimension-border-radius @dimension-border-radius;
     background-color: @colour-white;
-}
 
-// optional footer style
-.grid__panel-footer--tab {
-    padding: (@dimension-spacing-default / 2) @dimension-spacing-default;
-    background-color: @colour-grey-lightest;
+    .button--block:only-child {
+        margin-bottom: 0;
+    }
 }
