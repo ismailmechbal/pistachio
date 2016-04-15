@@ -104,8 +104,8 @@
                 @colour-brand,
                 @colour-white,
                 @colour-white,
-                @border-colour,
-                @border-colour
+                @colour-grey-lightest,
+                @colour-grey-lightest
             );
         }
     }
@@ -201,8 +201,7 @@
                 z-index: (@z-index-top + 1);
                 color: @colour-brand;
                 background-color: @colour-white;
-                border: @border-default;
-                //border-bottom: none;
+                border: 1px solid @colour-grey-lightest;
             }
 
             .nav__dropdown__menu {
@@ -222,7 +221,7 @@
     margin: -1px 0 0;
     padding: 1em 0;
     background-color: @colour-white;
-    border: @border-default;
+    border: 1px solid @colour-grey-lightest;
     .transition(visibility 0s @nav-dropdown-delay);
 
     a {
