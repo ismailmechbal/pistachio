@@ -4,7 +4,7 @@
   "description": "graze front end framework",
   "main": "index.js",
   "scripts": {
-    "postinstall": "if $BUILD_ASSETS; then gulp build; fi",
+    "postinstall": "if [ \"$BUILD_ASSETS\" == \"pistachio\" ]; then gulp build; fi",
     "start": "node ./site/docs/app.js",
     "test": "gulp build && gulp dev:profile && npm run test:js",
     "test:js": "node ./tests/js/jasmine.js",
