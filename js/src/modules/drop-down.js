@@ -33,6 +33,10 @@ module.exports = function($) {
             initOffScreen: function() {
                 initOffScreen();
             },
+            hasDropdownMenu: function($elem) {
+                var block = $elem.data('p.block');
+                return block.element('menu').length;
+            },
             show: function($elem) {
                 var block = $elem.data('p.block');
                 block.addModifier('active');
@@ -93,10 +97,13 @@ module.exports = function($) {
         }
 
         function clickDropDown(e) {
-            api.resetActiveStates();
-            api.show($(this).parent());
-            e.preventDefault(); // Stop top level links from being followed
-            e.stopPropagation(); // Stop a click on the dropdown menu propagating up the DOM so it's not registered as a click on the page
+            // only show dropdown menu if menu is present, otherwise, follow link normally
+            if (api.hasDropdownMenu($(this).parent())) {
+                api.resetActiveStates();
+                api.show($(this).parent());
+                e.preventDefault(); // Stop top level links from being followed
+                e.stopPropagation(); // Stop a click on the dropdown menu propagating up the DOM so it's not registered as a click on the page
+            }
         }
 
         function initOffScreen() {
