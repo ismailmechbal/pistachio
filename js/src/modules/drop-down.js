@@ -97,7 +97,7 @@ module.exports = function($) {
         }
 
         function clickDropDown(e) {
-            // only show dropdown menu if menu is present and not already open, otherwise, follow link normally
+            // only show dropdown menu if menu is present, otherwise, follow link normally
             if (api.hasDropdownMenu($(this).parent())) {
                 api.resetActiveStates();
                 api.show($(this).parent());
