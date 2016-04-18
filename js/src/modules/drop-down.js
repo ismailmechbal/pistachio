@@ -112,8 +112,10 @@ module.exports = function($) {
         }
 
         function clickOffScreen(e) {
-            api.toggle($(this).parent());
-            e.preventDefault(); // Stop top level links from being followed
+            if (api.hasDropdownMenu($(this).parent())) {
+                api.toggle($(this).parent());
+                e.preventDefault(); // Stop top level links from being followed
+            }
         }
 
         if (dropDownOffScreenArray) {
