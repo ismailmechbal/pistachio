@@ -64,8 +64,10 @@ module.exports = function($) {
             resetActiveStates: function() {
                 $dropDownTabs.each(function() {
                     // remove aria attribute, focus state, and active class
-                    dropDownTabsBlock.element('item').attr('aria-expanded','false').blur();
-                    $(this).removeClass('nav__dropdown--active');
+                    if (api.hasDropdownMenu($(this).parent())) {
+                        dropDownTabsBlock.element('item').attr('aria-expanded','false').blur();
+                        $(this).removeClass('nav__dropdown--active');
+                    }
                 });
             }
         }
