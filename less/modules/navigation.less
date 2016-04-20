@@ -26,7 +26,6 @@
     display: inline-block;
     padding: @nav-spacing-md @nav-spacing-lg;
 
-
     &:hover,
     &:focus {
         text-decoration: none;
@@ -46,8 +45,12 @@
     }
 }
 
-.nav__heading {
-    .margins(0, 1, 0, 0);
+.nav-heading {
+    display: inline-block;
+    vertical-align: middle;
+    .font-size(1);
+    font-weight: @font-weight-base;
+    .margins(1, 1, 1, 0);
 }
 
 //
@@ -172,7 +175,7 @@
             position: relative;
             padding: @nav-spacing-md @nav-spacing-lg @nav-spacing-lg;
             border-radius: @dimension-border-radius @dimension-border-radius 0 0;
-            border-bottom: none !important;
+            border-bottom: none;
             .transition(all 0s @nav-dropdown-delay);
 
             // down chevron icon for dropdowns
@@ -202,6 +205,7 @@
                 color: @colour-brand;
                 background-color: @colour-white;
                 border: 1px solid @colour-grey-lightest;
+                border-bottom: none;
             }
 
             .nav__dropdown__menu {
