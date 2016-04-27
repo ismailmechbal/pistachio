@@ -1,34 +1,44 @@
 language: node_js
+
 before_install:
-- npm install -g npm@latest
-- npm install -g gulp
+  - npm install -g npm@latest
+  - npm install -g gulp
+
 install:
-- npm install --ignore-scripts
+  - npm install --ignore-scripts
+
 script:
-- npm test
+  - npm test
+
 deploy:
-- provider: script
-  skip_cleanup: true
-  script: gulp publish
-  on:
-    branch: master
-- provider: script
-  skip_cleanup: true
-  script: gulp publish --for-real
-  on:
-    tags: true
-    condition: $TRAVIS_TAG = $(grep -m 1 version package.json | awk '{ print "v" $2
-      }' | sed 's/[",]//g')
-- provider: heroku
-  api_key:
-    secure: SAoCtu3N0BEwjo1yiMkESANSckYGx9718PgusJLUu9Pe0N/yRG8cU3iTAFMHt5ow4lY1GJquJBoIotjgF4LFs6B3AwSuwGTHatcTLtXwc/xLxB7DBLOObitwVy66CZXiJ5qG1KBuHaLhW/bNOIoXdrFfGuLhPHpOAjJs44tAS9joCPkpAt4maMQOmkzdfDMSEnT7NZRBWAOMdQm6QEXt6sTFllIfIqpxemB/YTWjnHBUk0JmDCfs7rfD6CkDwXZqeJERvUyo5kV3GP/FuFUw/MJyw+AuOAf6Cj8MdsCt1mo5hHgq6vHRBzm3CYV6My9n8q9aOezvoiGW8h+TmmymdMrR9iiGR3XgJT2oLSYgSRPsj34Nbia/GTlptqfk+Bub/WDkhg9dx+auD9U6vX/wyP5yrbDI+L0LqWaF/KdkEE72lraXTtXEDkna6qAwOIqZmmmAWnaF8Ua+xkChu7lMhq1Za8lYyr4r+esV/MjgGwiNE+IS85dImYb2rB5SlIol7vwJY3P83WIma+j5NcYA3V2toCJAeJi/Bbib34q4PAr2MAq3ymSgwdnR9tYVsHEjbIsSov5Sc1Fr0SjAi6zAXk2Xj2m4CiU2XiMlD0mzPhj8xafpYpBC2xkM41ffqwjV4gSsNqq78qOwRB+ckTxfVU7A3UFSdA3SkJ7+Sazx/8I=
-  app: graze-pistachio
-  on:
-    branch: master
+  # Deploy resources on master branch pushes.
+  - provider: script
+    skip_cleanup: true
+    script: gulp publish
+    on:
+      branch: master
+
+  # Deploy resources on a new release.
+  - provider: script
+    skip_cleanup: true
+    script: gulp publish --for-real
+    on:
+      tags: true
+      condition: "$TRAVIS_TAG = $(grep -m 1 version package.json | awk '{ print \"v\" $2 }' | sed 's/[\",]//g')"
+
+  # Deploy the style guide on master branch pushes.
+  - provider: heroku
+    api_key:
+      secure: "SAoCtu3N0BEwjo1yiMkESANSckYGx9718PgusJLUu9Pe0N/yRG8cU3iTAFMHt5ow4lY1GJquJBoIotjgF4LFs6B3AwSuwGTHatcTLtXwc/xLxB7DBLOObitwVy66CZXiJ5qG1KBuHaLhW/bNOIoXdrFfGuLhPHpOAjJs44tAS9joCPkpAt4maMQOmkzdfDMSEnT7NZRBWAOMdQm6QEXt6sTFllIfIqpxemB/YTWjnHBUk0JmDCfs7rfD6CkDwXZqeJERvUyo5kV3GP/FuFUw/MJyw+AuOAf6Cj8MdsCt1mo5hHgq6vHRBzm3CYV6My9n8q9aOezvoiGW8h+TmmymdMrR9iiGR3XgJT2oLSYgSRPsj34Nbia/GTlptqfk+Bub/WDkhg9dx+auD9U6vX/wyP5yrbDI+L0LqWaF/KdkEE72lraXTtXEDkna6qAwOIqZmmmAWnaF8Ua+xkChu7lMhq1Za8lYyr4r+esV/MjgGwiNE+IS85dImYb2rB5SlIol7vwJY3P83WIma+j5NcYA3V2toCJAeJi/Bbib34q4PAr2MAq3ymSgwdnR9tYVsHEjbIsSov5Sc1Fr0SjAi6zAXk2Xj2m4CiU2XiMlD0mzPhj8xafpYpBC2xkM41ffqwjV4gSsNqq78qOwRB+ckTxfVU7A3UFSdA3SkJ7+Sazx/8I="
+    app: graze-pistachio
+    on:
+      branch: master
+
 cache:
   directories:
-  - node_modules/
+    - node_modules/
+
 env:
   global:
-  - secure: ibaiBEya5jG6YvUbRNhItyrnMrOnyj5FosW7Z/dgrW0exVWg9NlG81xpTdQfLDHTmeTSjaImFYu64OOWiWHFYJc1uytasII+i8LxaFZN4+Ac+v0SSN+9Prw8DhszMYXqqw/fwcTSLPl/E5I5O/D6EPd8oSUe/pWQPUZmeOJOYfM7p93QNvVoGznMOjhwLbsmb+2v/dSQ09Rsa/Raj22dlizeI5PoAtDh8rAfvyMrlNc+2MJoWszHogc9eSxSHG7QCip0jttor97UkqnYK2t3BWwURBPs3dRR/cki/XW/ke9jMR6OrBstf6GdNRZuETBvFCqhWFRXqqhQVQ0z5wYh0u1m8Hve2GeDTN09U5GqHBAdr6fWYJ9kcxFpYcjHqmy2bWfcsIP0QnzBb5V+Rj4d1+RfSbqu2WwYheM2SpMYLfD/gNcw91uyah0R+QK1TeoaXzg0QHVbWa63KXc9YnjNW1uNvu/0ivBHRLIMKSDWcL3kAIBREiCgA2Cst3we9KLJe/IPhVvW7P5hZkblMQ8Mf/bpW5BH1BjHEY2Ul1QiQXZ3MHDetgIy3ZEuJhp7sbddwxGvZ2LVhGCpoy6TbWKSDcKOQzzTitULNXAkjBktjFFF+OkgMxnJXa4+tFKhB1Mik51Rv3COZ+Z1X3IhOMkUYQnJ1VJugJPypuNF8YNuNu4=
-  - secure: NJjPGOdBnuZSslWiwu9jy0YJoM7rUcT+aNt+rpS+yV3Lgx/EEhhM6iWuL5D7PZWNKpygAXxYZe1LxC66jswMqHcp2/H6NRkevMGvkaU2o/rXtYKZxWue4Fls6w/sa1gWWvO+RofXeJO1YxYHvAY+NPdfUiFoard2Eu8EPJAtSeq0TzjZ2LFzzhTefvVj1f4CCsJgUqvWuzF1BcVDBJzrm1vWya8GNeV9yxVSjpuDFAEl8Mg0OD+syBaeGAceHSpPPvbxPSRiJnfE6e4ayGBjywj4QGg4Xrh0vAI0xC9oXqofmrVUNdxUTdtrRJkC2iHT1M8zgMiZTRy9/8UjHhYoKLMZCrh9Aw5pjGdp2Qf49Qsa2i0ZwwlSk5yc0HE3rF1cikhJASLt87MKNod6JztyHfIrj2flik03oN/7vtNN0/LVnzPsfXerNmRVnTaCD+8WNofAo1GeTsxOU/ESvhwIeTt5aUkoYUd2IePkoyM89YKoaUoGTbHkeQDqXhHJTLT6CIuUu+ndjfW3ZJrP2eLMDnf5JbdS+kClCjK/ji0VBNGG/tn02c6c/Pr4CSBRvNn+/p4hyjTd655SPhFoaCZba+n+uBNmzL0VHMivKqCMbEKQiPFIGZkKhvuomnqtkdy3mD+4xpQwH7kkQFB4b79yMPVtNJ/w+Twmo1316+s6gk8=
+    - secure: ibaiBEya5jG6YvUbRNhItyrnMrOnyj5FosW7Z/dgrW0exVWg9NlG81xpTdQfLDHTmeTSjaImFYu64OOWiWHFYJc1uytasII+i8LxaFZN4+Ac+v0SSN+9Prw8DhszMYXqqw/fwcTSLPl/E5I5O/D6EPd8oSUe/pWQPUZmeOJOYfM7p93QNvVoGznMOjhwLbsmb+2v/dSQ09Rsa/Raj22dlizeI5PoAtDh8rAfvyMrlNc+2MJoWszHogc9eSxSHG7QCip0jttor97UkqnYK2t3BWwURBPs3dRR/cki/XW/ke9jMR6OrBstf6GdNRZuETBvFCqhWFRXqqhQVQ0z5wYh0u1m8Hve2GeDTN09U5GqHBAdr6fWYJ9kcxFpYcjHqmy2bWfcsIP0QnzBb5V+Rj4d1+RfSbqu2WwYheM2SpMYLfD/gNcw91uyah0R+QK1TeoaXzg0QHVbWa63KXc9YnjNW1uNvu/0ivBHRLIMKSDWcL3kAIBREiCgA2Cst3we9KLJe/IPhVvW7P5hZkblMQ8Mf/bpW5BH1BjHEY2Ul1QiQXZ3MHDetgIy3ZEuJhp7sbddwxGvZ2LVhGCpoy6TbWKSDcKOQzzTitULNXAkjBktjFFF+OkgMxnJXa4+tFKhB1Mik51Rv3COZ+Z1X3IhOMkUYQnJ1VJugJPypuNF8YNuNu4=
+    - secure: NJjPGOdBnuZSslWiwu9jy0YJoM7rUcT+aNt+rpS+yV3Lgx/EEhhM6iWuL5D7PZWNKpygAXxYZe1LxC66jswMqHcp2/H6NRkevMGvkaU2o/rXtYKZxWue4Fls6w/sa1gWWvO+RofXeJO1YxYHvAY+NPdfUiFoard2Eu8EPJAtSeq0TzjZ2LFzzhTefvVj1f4CCsJgUqvWuzF1BcVDBJzrm1vWya8GNeV9yxVSjpuDFAEl8Mg0OD+syBaeGAceHSpPPvbxPSRiJnfE6e4ayGBjywj4QGg4Xrh0vAI0xC9oXqofmrVUNdxUTdtrRJkC2iHT1M8zgMiZTRy9/8UjHhYoKLMZCrh9Aw5pjGdp2Qf49Qsa2i0ZwwlSk5yc0HE3rF1cikhJASLt87MKNod6JztyHfIrj2flik03oN/7vtNN0/LVnzPsfXerNmRVnTaCD+8WNofAo1GeTsxOU/ESvhwIeTt5aUkoYUd2IePkoyM89YKoaUoGTbHkeQDqXhHJTLT6CIuUu+ndjfW3ZJrP2eLMDnf5JbdS+kClCjK/ji0VBNGG/tn02c6c/Pr4CSBRvNn+/p4hyjTd655SPhFoaCZba+n+uBNmzL0VHMivKqCMbEKQiPFIGZkKhvuomnqtkdy3mD+4xpQwH7kkQFB4b79yMPVtNJ/w+Twmo1316+s6gk8=
