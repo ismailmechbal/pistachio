@@ -30,6 +30,10 @@ var modules = {
     'dropDown': moduleFactory('dropDown', {
         module: require('./modules/drop-down'),
         autoload: true
+    }),
+    'tabs': moduleFactory('tabs', {
+        module: require('./modules/tabbed-content'),
+        autoload: true
     })
 };
 

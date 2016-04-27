@@ -33,6 +33,14 @@
     {{{ getFile 'site/docs/views/examples/nav/sub-nav-inverse.html' }}}
 {{/codeBlock}}
 
+<h2 class="cd-text cd-title">side navigation</h2>
+<p class="cd-text">Our side navigation is a varation of the nav where <code>.nav__item</code>s are aligned vertically using the <code>.nav--vertical</code> modifier. Some mobile appropriate CSS is applied below 768px viewport width.</p>
+
+{{{ getFile 'site/docs/views/examples/side-nav.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/side-nav.html' }}}
+{{/codeBlock}}
+
 <h2 class="cd-text cd-title">tabbed nav</h2>
 <p class="cd-text">Use the <code>.nav--tabs</code> modifier to generate a nav that uses tabs and should only be used where the tabs are positioned over a non-white background color, typically a <a href="page-section">page-section</a> with the same classes as in the example below.</p>
 {{{ getFile 'site/docs/views/examples/nav/nav-tabs.html' }}}
@@ -59,10 +67,24 @@
 
 {{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd.html' }}}
 
-<h2 class="cd-text cd-title">side navigation</h2>
-<p class="cd-text">Our side navigation is a varation of the nav where <code>.nav__item</code>s are aligned vertically using the <code>.nav--vertical</code> modifier. Some mobile appropriate CSS is applied below 768px viewport width.</p>
+<h2 class="cd-text cd-title">tabbed nav with content</h2>
+<p class="cd-text">Tabbed content requires pistachio.js support and the presence of the <code>data-p-module="tabs"</code> attribute along with the classes and markup order as shown on the <a href="/layouts/tabbed-content">tabbed-content layout</a> page.
 
-{{{ getFile 'site/docs/views/examples/side-nav.html' }}}
+In addition to the basic show/hide functionality, the tabbed content JavaScript also applies the following:</p>
+
+<ul class="cd-text">
+    <li>An animating icon</li>
+    <li>Numerous HTML5 and <code>aria</code> attributes to improve accessiblity</li>
+    <li>Keyboard controls - when focused an accordion element will activate on <code>enter</code> key press</li>
+    <li>The ability to specify breakpoints at which the tabs will switch to an accordion via the <code>data-tabs-stacked="xxs,xs"</code> attribute.</li>
+</ul>
+
+<p class="cd-text">If JavaScript is unavailable for some reason, the tabs will still work with css only but will not switch to accordions at the specified breakpoints.</p>
+
+<div class="page-section page-section--hint page-section--sm">
+    {{{ getFile 'site/docs/views/examples/nav/nav-tabbed-content.html' }}}
+</div>
+
 {{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/side-nav.html' }}}
+    {{{ getFile 'site/docs/views/examples/nav/nav-tabbed-content.html' }}}
 {{/codeBlock}}

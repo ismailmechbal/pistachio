@@ -10,6 +10,8 @@
 // Default
 // ---
 .nav {
+    position: relative;
+    z-index: (@z-index-base + 2);
     .list-inline-style();
     .clearfix();
     margin: 0;
@@ -56,7 +58,6 @@
 //
 // Block display nav
 // ---
-
 .nav--block {
     display: block;
 }
@@ -145,7 +146,7 @@
 
 //
 // Small tabbed variant
-//
+// ---
 .nav--tabs--sm {
     li {
         margin: @nav-spacing-xxs @nav-spacing-xxs 0 0;
@@ -153,6 +154,85 @@
         .nav__item {
             padding: @nav-spacing-xxs @nav-spacing-md @nav-spacing-sm;
         }
+    }
+}
+
+//
+// Responsive stacked tabs
+// ---
+.nav--tabs--stacked {
+    overflow: hidden;
+
+    li {
+        display: block;
+        margin: 0;
+
+        .nav__item {
+            display: block;
+            margin: 0;
+            padding: @nav-spacing-lg;
+            background-color: @colour-white;
+            border: 1px solid @colour-grey-lightest;
+            border-radius: 0;
+
+            &:after {
+                .off-screen-menu-transition();
+                content: "\f107";
+                .icon();
+                float: right;
+                margin-top: 0.25em;
+                margin-left: 0.5em;
+            }
+
+            &:hover,
+            &:focus {
+                border: 1px solid @colour-grey-lightest;
+            }
+
+            &--active {
+                background-color: @colour-grey-lightest;
+
+                &:after {
+                    display: none;
+                }
+
+                &:hover,
+                &:focus {
+                    background-color: @colour-grey-lightest;
+                }
+            }
+        }
+    }
+}
+
+//
+// Tabbed content
+// ---
+
+.tabbed-content__section-wrap {
+    position: relative;
+    z-index: (@z-index-base + 1);
+    margin-top: -1px;
+    overflow: hidden;
+}
+
+.tabbed-content__section {
+    .inner-content-fix();
+    position: absolute;
+    visibility: hidden;
+    z-index: @z-index-base;
+    padding: @dimension-padding-lg;
+    background-color: @colour-white;
+    border: 1px solid @colour-grey-lightest;
+    .border-bottom-radius(@dimension-border-radius);
+
+    &:target,
+    &--active {
+        position: relative;
+        visibility: visible;
+        z-index: @z-index-top;
+        border-bottom: 0;
+        .border-bottom-radius(0);
     }
 }
 
@@ -188,6 +268,8 @@
             // no delay on focus for better keyboard use
             &:focus {
                 .transition-delay(0s);
+                border: 1px solid @colour-grey-lightest;
+                border-bottom: none;
             }
         }
 
