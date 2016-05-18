@@ -273,11 +273,16 @@
                     border-bottom: 1px solid @border-colour;
                     .transition(none);
 
+                    &:before {
+                        display: none;
+                    }
+
                     &:after {
                         .position(absolute, 50%, @dimension-padding-base, ~'', ~'');
                         margin-top: -.5em;
                         margin-left: .5em;
                         .off-screen-menu-transition();
+                        visibility: visible;
                     }
                 }
             }

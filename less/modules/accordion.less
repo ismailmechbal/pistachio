@@ -120,10 +120,9 @@
         &:after {
             .off-screen-menu-transition();
             .icon();
-            content: "\f107";
+            .make-icon(@fa-angle-down, @text-colour, pseudo);
             .position(absolute, 50%, @dimension-padding-base, ~'', ~'');
             margin-top: -.5em;
-            margin-left: .5em;
         }
     }
 }

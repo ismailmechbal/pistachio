@@ -51,20 +51,21 @@
 //
 // Alternate styles
 // ---
+
 .alert--success {
-    .alert-variant(@icon-success, @colour-state-success, @colour-state-success-text);
+    .alert-type(@fa-check-circle, @colour-state-success, @colour-state-success-text);
 }
 
 .alert--info {
-    .alert-variant(@icon-info, @colour-state-info, @colour-state-info-text);
+    .alert-type(@fa-info-circle, @colour-state-info, @colour-state-info-text);
 }
 
 .alert--warning {
-    .alert-variant(@icon-warning, @colour-state-warning, @colour-state-warning-text);
+    .alert-type(@fa-warning, @colour-state-warning, @colour-state-warning-text);
 }
 
 .alert--danger {
-    .alert-variant(@icon-danger, @colour-state-danger, @colour-state-danger-text);
+    .alert-type(@fa-exclamation-circle, lighten(@colour-state-danger, 40%), @colour-state-danger-text);
 }
 
 //

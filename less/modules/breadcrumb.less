@@ -15,9 +15,8 @@
     }
 
     > li:after {
-        content: '\f105';
         .icon();
-        color: @colour-grey-lighter;
+        .make-icon(@fa-angle-right, @colour-grey-lighter, pseudo);
         .margins(0, 0.85, 0, 0.85);
     }
 
@@ -28,7 +27,7 @@
 
 .breadcrumb--with-title {
     li:last-of-type:after {
-        display: inline;
+        display: inline-block;
     }
 }
 
@@ -42,7 +41,7 @@
     }
 
     &:focus {
-       .tab-focus-state(@colour-brand);
+       .tab-focus-state(@colour-brand, @colour-brand, @colour-white);
     }
 }
 

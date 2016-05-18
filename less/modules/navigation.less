@@ -253,16 +253,23 @@
             display: block;
             background-color: transparent;
             position: relative;
-            padding: @nav-spacing-md @nav-spacing-lg @nav-spacing-lg;
+            padding: @nav-spacing-md (@nav-spacing-lg * 2) @nav-spacing-lg @nav-spacing-lg;
             border-radius: @dimension-border-radius @dimension-border-radius 0 0;
             border-bottom: none;
             .transition(all 0s @nav-dropdown-delay);
 
             // down chevron icon for dropdowns
+            &:before,
             &:after {
-                content: "\f107";
+                .position(absolute, 0.75em, 0.5em, ~'', ~'');
                 .icon();
-                margin-left: 0.5em;
+                .make-icon(@fa-angle-down, @colour-white, pseudo);
+                .transition(all 0s @nav-dropdown-delay);
+            }
+
+            &:after {
+                visibility: hidden;
+                .make-icon(@fa-angle-down, @colour-brand, pseudo);
             }
 
             // no delay on focus for better keyboard use
@@ -276,6 +283,14 @@
         .nav__dropdown__item--single {
             &:after {
                 display: none;
+
+                &:before {
+                    visibility: hidden;
+                }
+
+                &:after {
+                    visibility: visible;
+                }
             }
         }
 
@@ -286,8 +301,15 @@
                 z-index: (@z-index-top + 1);
                 color: @colour-brand;
                 background-color: @colour-white;
-                border: 1px solid @colour-grey-lightest;
-                border-bottom: none;
+                border: 1px solid @colour-white;
+
+                &:before {
+                    visibility: hidden;
+                }
+
+                &:after {
+                    visibility: visible;
+                }
             }
 
             .nav__dropdown__menu {

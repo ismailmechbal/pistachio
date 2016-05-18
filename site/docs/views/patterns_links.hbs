@@ -18,8 +18,18 @@
 </div>
 
 <h2 class="cd-text cd-title">transparent image links</h2>
-<p class="cd-text">A link around a transparent image would be given the standard link background colour on focus. This might not always be appropriate and can be removed by using the <code>.link-img</code> class.</p>
-<a class="link-img" href="#"><img src="https://cdn.graze.com/static/11-1443792395/images/graze/en/header/logo.png"></a>
+<p class="cd-text">A link around a transparent image would be given the standard link background colour on focus. This will likely not fill the entire image but that can be remedied by using the <code>.link-img</code> class.</p>
+
+<div class="row">
+    <div class="col-xs-6">
+        <p>without <code>.link-img</code></p>
+        <a href="#0"><img src="https://cdn.graze.com/static/11-1443792395/images/graze/en/header/logo.png"></a>
+    </div>
+    <div class="col-xs-6">
+        <p>with <code>.link-img</code></p>
+        <a class="link-img" href="#0"><img src="https://cdn.graze.com/static/11-1443792395/images/graze/en/header/logo.png"></a>
+    </div>
+</div>
 
 <h2 class="cd-text cd-title">aside links</h2>
 <p class="cd-text">This is not intended to replace <a href="navigation">navigation</a> but it can be appropriate to visually separate a single link from a body of text. Uses the <code>.link-aside</code> class.</p>
@@ -28,27 +38,20 @@
 <h2 class="cd-text cd-title">meta links</h2>
 <p class="cd-text">Meta links are to be used when a link has low importance, is not a primary call to action and may detract from other nearby information if it uses the default link style. Suitable for use as a close or remove action. Uses the <code>.link-meta</code> class.</p>
 
-<a href="#" target="_blank" class="link-meta">
-    <span aria-hidden="true" class="fa fa-pinterest-square fa-2x"></span>
-    <span class="sr-only">Add to Pinterest</span>
-</a>
+{{{ getFile 'site/docs/views/examples/link-meta.html' }}}
 
-<div class="row">
-    <div class="col-xxs-8">
-        <p>fruit and seed summer mix</p>
-    </div>
-    <div class="col-xxs-4 text-right">
-        <p><a href="#" class="link-meta"><i class="fa fa-close"></i> remove</a></p>
-    </div>
-</div>
+{{#codeBlock}}
+{{{ getFile 'site/docs/views/examples/link-meta.html' }}}
+{{/codeBlock}}
+
 
 <h2 class="cd-text cd-title">non wrapping links</h2>
 <p class="cd-text">Especially useful for when an icon is used in a standard link and you want to ensure the icon is always on the same line as the rest of the link. Uses the <code>.link-nowrap</code> class.</p>
 
 <div style="width: 100px; float: left;">
-    <a href="#" class="link-meta"><i class="fa fa-close"></i> without link-nowrap</a>
+    <a href="#" class="link-meta"><span class="fa fa-close" aria-hidden="true"></span> without link-nowrap</a>
 </div>
 <div style="width: 100px; float: left;">
-    <a href="#" class="link-meta link-nowrap"><i class="fa fa-close"></i> with link-nowrap</a>
+    <a href="#" class="link-meta link-nowrap"><span class="fa fa-close" aria-hidden="true"></span> with link-nowrap</a>
 </div>
 

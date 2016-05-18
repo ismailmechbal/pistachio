@@ -33,6 +33,12 @@ module.exports = [
         name: 'fa-angle-down'
     },
     {
+        name: 'fa-angle-left'
+    },
+    {
+        name: 'fa-angle-right'
+    },
+    {
         name: 'fa-search'
     },
     {
@@ -61,6 +67,9 @@ module.exports = [
     },
     {
         name: 'fa-envelope-o'
+    },
+    {
+        name: 'fa-envelope-square'
     },
     {
         name: 'fa-history'
@@ -99,24 +108,33 @@ module.exports = [
         name: 'fa-tag'
     },
     {
+        name: 'fa-check'
+    },
+    {
         name: 'fa-check-circle'
     },
     {
-        name: 'fa-facebook-square'
+        name: 'fa-facebook'
     },
     {
-        name: 'fa-twitter-square'
+        name: 'fa-twitter'
     },
     {
-        name: 'fa-tumblr-square'
+        name: 'fa-tumblr'
     },
     {
         name: 'fa-instagram'
     },
     {
-        name: 'fa-linkedin-square'
+        name: 'fa-linkedin'
+    },
+    {
+        name: 'fa-pinterest'
     },
     {
         name: 'fa-code'
+    },
+    {
+        name: 'fa-bars'
     }
 ]

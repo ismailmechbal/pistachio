@@ -48,7 +48,8 @@
 // Buttons with icons
 // ===
 .button--continue {
-    .button-icon("\f054");
+    .button-style(@colour-accent, @colour-white, darken(@colour-accent, 5%), @colour-accent);
+    .button-icon(@fa-chevron-right, right, @colour-white);
 
     &:hover,
     &:focus {
@@ -59,7 +60,7 @@
 }
 
 .button--back {
-    .button-icon("\f053", left);
+    .button-icon(@fa-chevron-left, left);
 
     &:hover,
     &:focus {

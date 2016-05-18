@@ -1,15 +1,74 @@
 <h1 class="cd-text cd-title">icons</h1>
-<h2 class="cd-text cd-title">Loader</h2>
-<p class="cd-text">A general loading animation which can be used for any action that is waiting for a response to an in-page (ajax) request.</p>
-<p><span class="icon-loader"></span></p>
-<p><code>&lt;span class="icon-loader"&gt;&lt;/span&gt;</code></p>
+<h2 class="cd-text cd-title">Icon usage</h2>
+<ul class="cd-text">
+    <li><strong>We use <a href="https://fortawesome.github.io/Font-Awesome/icons/">font awesome icons</a></strong> although please note that not all of the font awesome icons are available in pistachio, only the ones we commonly use.</li>
+    <li><strong>Our icons are svgs</strong> because this gives us better performance compared to using an icon font.
+    <li><strong>Icons should use the <code>&lt;span&gt;</code> element</strong> which covers most, if not all, use cases and is semantically appropriate.</li>
+    <li><strong>Icons should use the <code>aria-hidden="true"</code> property</strong> because icons do not really convey any meaning to assistive devices.</li>
+    <li><strong>Avoid using an icon on it's own</strong> without providing some visible text that explains the meaning or context. At the very least you should provide some <a href="utilities#accessibility-utilities">text for assistive devices</a>.</li>
+</ul>
 
-<h2 class="cd-text cd-title">Font awesome icons</h2>
-<p class="cd-text">These are the font awesome icons that we use which cover most requirements. A full list can be found at <a href="https://fortawesome.github.io/Font-Awesome/icons/">the font awesome site</a> but care should be taken to avoid using slightly different icons for the same function. Consistency is important.</p>
-<p class="cd-text">Never use an icon on it's own without either providing some visible text that explains the meaning. At the very least you should provide some <a href="utilities#accessibility-utilities">text for assistive devices</a></p>
+<h2 class="cd-text cd-title">Icons in links</h2>
+<p class="cd-text">Icons are not appropriate for use with default links found in longer passages of text which should be text only. However, icons can be used with <a href="links#meta-links">meta links</a>.</p>
+{{{ getFile 'site/docs/views/examples/link-meta.html' }}}
 
+{{#codeBlock}}
+{{{ getFile 'site/docs/views/examples/link-meta.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">Icons in buttons</h2>
+<p class="cd-text">Further guidance can be found in the <a href="buttons#button-icons">button icons</a> section.</p>
+{{{ getFile 'site/docs/views/examples/buttons/button-icons.html' }}}
+
+{{#codeBlock}}
+{{{ getFile 'site/docs/views/examples/buttons/button-icons.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">Icons on their own</h2>
+<p class="cd-text">Icons on their own should typically be large and have hidden text for assistive devices.</p>
+{{{ getFile 'site/docs/views/examples/icons.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/icons.html' }}}
+{{/codeBlock}}
+
+
+<h2 class="cd-text cd-title">Icon size</h2>
+<p class="cd-text">Icons are sized with <code>em</code> so will typically be the same height as the text in their containing element. Larger icons are suitable for when an icon is <a href="#icons-on-their-own">used on it's own</a> and can be created by using the <code>.fa-2x</code> class.</p>
+
+<div class="row">
+    <div class="col-xxs-6">
+        <p>base size</p>
+        <span class="fa fa-close" aria-hidden="true"></span>
+    </div>
+    <div class="col-xxs-6">
+        <p>2x size (<code>.fa-2x</code>)</p>
+        <span class="fa fa-2x fa-close" aria-hidden="true"></span>
+    </div>
+</div>
+
+<h2 class="cd-text cd-title">Icon colour</h2>
+<p class="cd-text">Icons are svgs so will not inherit the colour of their parent element's text. However, every icon has an inverse variant which is used by appending <code>--inverse</code> to the <a href="#icon-library">icon class name</a> and are suitable for use on a dark background, or in coloured buttons.</p>
+
+<div class="page-section page-section--brand page-section--xs">
+    <div class="row">
+        <div class="col-xs-12 page-section__content text-center">
+            <button class="button button--primary"><span class="fa fa-user--inverse"></span> my account</button>
+            {{{ getFile 'site/docs/views/examples/icons-inverse.html' }}}
+        </div>
+    </div>
+</div>
+
+<h2 class="cd-text cd-title">Icon library</h2>
+<div class="row">
 {{#each icons}}
 <div class="col-sm-6">
     <p><span class="fa {{ name }}"></span> <code>.{{ name }}</code></p>
 </div>
 {{/each}}
+</div>
+
+<h2 class="cd-text cd-title">Bespoke loader icon</h2>
+<p class="cd-text">A general loading animation which can be used for any action that is waiting for a response to an in-page (ajax) request.</p>
+<p><span class="icon-loader"></span></p>
+<p><code>&lt;span class="icon-loader"&gt;&lt;/span&gt;</code></p>
+

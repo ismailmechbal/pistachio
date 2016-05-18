@@ -2,18 +2,26 @@
 // Icons
 // ---
 
-@font-awesome-path: "../../node_modules/font-awesome/less";
+//
+// Font awesome svgs
+//
+// list of available icons: /less/includes/variables/icons.less
+// ---
 
-@import '@{font-awesome-path}/variables';
-@import '@{font-awesome-path}/mixins';
-@import '@{font-awesome-path}/path';
-@import '@{font-awesome-path}/core';
-@import '@{font-awesome-path}/larger';
-@import '@{font-awesome-path}/stacked';
-@import '@{font-awesome-path}/icons';
+// set up base icon class
+.fa {
+    .icon();
+    margin-top: -0.1em;
+}
 
-// Override path to fonts
-@fa-font-path:  '@{font-path}/font-awesome/';
+// icon modifiers
+.fa-2x {
+    height: 2em;
+    width: 2em;
+}
+
+// generate lots of individual icons
+.make-icons();
 
 //
 // Bespoke loading icon (animation applied in animations.less)

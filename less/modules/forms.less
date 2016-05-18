@@ -280,16 +280,16 @@ legend {
 }
 
 .form-group--has-success {
-    .form-control-validation(@colour-accent; @colour-accent; @colour-white);
+    .form-control-validation(@colour-accent, @colour-accent, @fa-check-circle);
 }
 
 .form-group--has-error {
-    .form-control-validation(@colour-error; @colour-error; @colour-white);
+    .form-control-validation(@colour-error, @colour-error, @fa-warning);
 }
 
 // Feedback icon above a form-control
 .form-control-feedback {
-    .position(absolute, 0, 0, ~'', ~'');
+    .position(absolute, 0, 0.5em, ~'', ~'');
     z-index: @z-index-base; // Ensure feedback is above input groups
     display: block;
     height: @input-height-base;
