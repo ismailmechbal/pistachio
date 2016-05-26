@@ -1,0 +1,53 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+
+//
+// Footer
+// ===
+
+html.has-page-footer {
+    position: relative;
+    min-height: 100%;
+    min-height: 100vh;
+    border-bottom: 25px solid @colour-brand;
+    padding-bottom: @footer-height;
+}
+
+.page-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    .container-fixed();
+    padding-bottom: @footer-padding;
+
+    @media (min-width: @screen-sm-min) {
+      width: @container-sm;
+    }
+    @media (min-width: @screen-md-min) {
+      width: @container-md;
+    }
+    @media (min-width: @screen-lg-min) {
+      width: @container-lg;
+    }
+
+    @media (max-width: @screen-xs-min) {
+        &:after {
+            right: auto;
+            left: 5px;
+        }
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        .position(absolute, ~'', 15px, -10px, ~'');
+        height: 50px;
+        width: 130px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 100% center;
+        background-image: url(@graze-logo-with-stroke);
+    }
+}
