@@ -80,6 +80,11 @@ module.exports = {
             title: 'grey-lightest',
             variable: '@colour-grey-lightest',
             hex: 'eeeeee'
+        },
+        {
+            title: 'grey-hint',
+            variable: '@colour-grey-hint',
+            hex: 'f8f8f8'
         }
     ]
 }
