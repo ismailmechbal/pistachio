@@ -39,6 +39,7 @@
 // ---
 .off-screen-header {
     min-height: @off-screen-header-min-height;
+    .off-screen-menu-transition();
 }
 
 .off-screen-header__logo {
@@ -97,6 +98,10 @@
                 .translate(@off-screen-menu-width, 0);
                 .position(fixed, @off-screen-header-min-height, 0, 0, 0); // prevent scrolling of page when menu is active
             }
+
+            & ~ .page-footer {
+                display: none;
+            }
         }
     }
 
@@ -128,6 +133,10 @@
 
         &.page-wrapper {
             .translate(@off-screen-menu-width, 0);
+        }
+
+        &.page-footer {
+            display: none;
         }
     }
 
