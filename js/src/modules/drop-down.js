@@ -64,7 +64,7 @@ module.exports = function($) {
             resetActiveStates: function() {
                 $dropDownTabs.each(function() {
                     // remove aria attribute, focus state, and active class
-                    if (api.hasDropdownMenu($(this).parent())) {
+                    if (api.hasDropdownMenu($(this))) {
                         dropDownTabsBlock.element('item').attr('aria-expanded','false').blur();
                         $(this).removeClass('nav__dropdown--active');
                     }
