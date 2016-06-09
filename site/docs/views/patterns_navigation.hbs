@@ -2,7 +2,7 @@
 <p class="cd-text">These are our core navigation components that should be use to direct a user around a website or collection of subpages. When multiple rows of navigation elements are adjacent to each other, use <a href="page-sections">page sections</a> to visually distinguish them from each other.</p>
 
 <h2 class="cd-text cd-title">default nav</h2>
-<p class="cd-text">Our default in-page nav is a horizontal nav with pill styling. The <code>.nav__item--active</code> class can optionally be used to highlight the current context. By default our navs are inline but can be made block by using the <code>nav--block</code> modifier.</p>
+<p class="cd-text">Our default in-page nav is a horizontal nav with pill styling. The <code>.nav__item--active</code> class can optionally be used to highlight the current context. By default our navs are <code>inline-block</code> but can be made <code>block</code> by using the <code>nav--block</code> modifier.</p>
 
 {{{ getFile 'site/docs/views/examples/nav/sub-nav.html' }}}
 {{#codeBlock}}
@@ -25,14 +25,6 @@
     {{{ getFile 'site/docs/views/examples/nav/sub-nav-buttons.html' }}}
 {{/codeBlock}}
 
-<h2 class="cd-text cd-title">inverse nav</h2>
-<p class="cd-text">Use the <code>.nav--inverse</code> modifier to generate a nav that works on dark backgrounds. This example uses an optional <code>.text-center</code> modifier.</p>
-
-{{{ getFile 'site/docs/views/examples/nav/sub-nav-inverse.html' }}}
-{{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/nav/sub-nav-inverse.html' }}}
-{{/codeBlock}}
-
 <h2 class="cd-text cd-title">side navigation</h2>
 <p class="cd-text">Our side navigation is a varation of the nav where <code>.nav__item</code>s are aligned vertically using the <code>.nav--vertical</code> modifier. Some mobile appropriate CSS is applied below 768px viewport width.</p>
 
@@ -42,7 +34,7 @@
 {{/codeBlock}}
 
 <h2 class="cd-text cd-title">tabbed nav</h2>
-<p class="cd-text">Use the <code>.nav--tabs</code> modifier to generate a nav that uses tabs and should only be used where the tabs are positioned over a non-white background color, typically a <a href="page-section">page-section</a> with the same classes as in the example below.</p>
+<p class="cd-text">Use the <code>.nav--tabs</code> modifier to generate a nav that uses tabs and should always be used over a full viewport width <a href="page-section">page-section</a> with the same classes as in the example below.</p>
 {{{ getFile 'site/docs/views/examples/nav/nav-tabs.html' }}}
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/nav/nav-tabs.html' }}}
@@ -56,16 +48,18 @@
 {{/codeBlock}}
 
 <h2 class="cd-text cd-title">inverse tabbed nav</h2>
-<p class="cd-text">Use the <code>.nav--tabs--inverse</code> modifier to generate a tabbed nav that works on dark backgrounds.</p>
+<p class="cd-text">Use the <code>.nav--tabs--inverse</code> modifier to generate a tabbed nav that works on dark backgrounds. This should typically only be used on a <a href="page-sections">brand colour page section</a> at the very top of a page as part of top level navigation as in <a href="/layouts/off-screen-menu">this layout example</a>.</p>
 {{{ getFile 'site/docs/views/examples/nav/nav-tabs-inverse.html' }}}
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/nav/nav-tabs-inverse.html' }}}
 {{/codeBlock}}
 
 <h2 class="cd-text cd-title">Dropdown menu</h2>
-<p class="cd-text">Check the <a href="/layouts/drop-down-menu">dropdown menu example page</a> for a markup example.</p>
+<p class="cd-text">Should always be full width. Check the <a href="/layouts/drop-down-menu">dropdown menu example page</a> for a markup example.</p>
 
+<div class="page-section page-section--alternate page-section--bleed">
 {{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd.html' }}}
+</div>
 
 <h2 class="cd-text cd-title">tabbed nav with content</h2>
 <p class="cd-text">Tabbed content requires pistachio.js support and the presence of the <code>data-p-module="tabs"</code> attribute along with the classes and markup order as shown on the <a href="/layouts/tabbed-content">tabbed-content layout</a> page.
