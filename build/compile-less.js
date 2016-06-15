@@ -4,6 +4,7 @@ var sourcemap = require('gulp-sourcemaps');
 var minifyCSS = require('gulp-minify-css');
 var log = require('./log');
 var path = require('path');
+var NpmImportPlugin = require("less-plugin-npm-import");
 
 /**
  * Compiles a LESS file to CSS from a specified source to a specified directory
@@ -32,7 +33,9 @@ module.exports = function compileLess(opts) {
     // Init sourcemap
     .pipe(sourcemap.init())
     // Compile LESS
-    .pipe(less())
+    .pipe(less({
+        plugins: [new NpmImportPlugin()]
+    }))
     // Catch LESS Compilation errors
     .on('error', function(err) {
         log.error(err.message);
