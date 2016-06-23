@@ -1,0 +1,98 @@
+<h1 class="cd-text cd-title">feature blocks</h1>
+<p class="cd-text">Feature blocks can be used to showcase a product, category, or a link to related content such as blog posts.</p>
+
+<h2 class="cd-text cd-title">feature banner</h2>
+<p class="cd-text">Feature banners are designed to work with an image that is 1200px wide and 300px high. For art direction you should consider the right two thirds of the image as the focus.</p>
+<p class="cd-text">Feature banners should always be full width so please visit the <a href="/layouts/feature-blocks#banner">example layout page</a> for a demo.</p>
+
+<img src="/images/banners/banner-template-simple.jpg" class="img-responsive">
+
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/features/banner.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">feature square</h2>
+<p class="cd-text">Feature squares are designed to work with a square image and should be used in a <a href="/layouts/feature-blocks#footers">feature block grid</a> for various layout options.</p>
+
+{{{ getFile 'site/docs/views/examples/features/square.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/features/square.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">feature half</h2>
+<p class="cd-text">Feature squares are designed to work with a 2:1 ratio rectangle image and should be used in a <a href="/layouts/feature-blocks#footers">feature block grid</a> for various layout options.</p>
+
+{{{ getFile 'site/docs/views/examples/features/half.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/features/half.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">feature footer</h2>
+<p class="cd-text">Add a <code>.feature__footer</code> to a feature block.</p>
+
+<div class="row">
+    <ul class="grid">
+        <li class="grid__col-sm-4">
+            {{{ getFile 'site/docs/views/examples/features/footer.html' }}}
+        </li>
+        <li class="grid__col-12">
+            {{#codeBlock}}
+                {{{ getFile 'site/docs/views/examples/features/footer.html' }}}
+            {{/codeBlock}}
+        </li>
+    </ul>
+</div>
+
+<h2 class="cd-text cd-title">feature heading</h2>
+<p class="cd-text">Add a <code>.feature__heading</code> to a feature block.</p>
+
+<div class="row">
+    <ul class="grid">
+        <li class="grid__col-sm-4">
+            {{{ getFile 'site/docs/views/examples/features/heading.html' }}}
+        </li>
+        <li class="grid__col-12">
+            {{#codeBlock}}
+                {{{ getFile 'site/docs/views/examples/features/heading.html' }}}
+            {{/codeBlock}}
+        </li>
+    </ul>
+</div>
+
+<h2 class="cd-text cd-title">feature block grid</h2>
+<p class="cd-text">It's possible to set up many different layouts for feature blocks by combining the available feature block types with a grid. Check out the <a href="/layouts/feature-blocks">example layout page</a> for a demo of all the possibilities.</p>
+
+<div class="row">
+    <ul class="grid">
+        <li class="grid__col-12 grid__col-xs-8">
+            <a href="#0" class="feature feature--half" style="background-image:url('https://placekitten.com/500/200');">
+                <p class="feature__footer">
+                    flapjacks
+                </p>
+            </a>
+        </li>
+        <li class="grid__col-12 grid__col-xs-4">
+            <a href="#0" class="feature feature--square" style="background-image:url('https://placekitten.com/600/600');">
+                <p class="feature__footer">
+                    ingredients
+                </p>
+            </a>
+        </li>
+        <li class="grid__col-12 grid__col-xs-4">
+            <a href="#0" class="feature feature--square" style="background-image:url('https://placekitten.com/700/700');">
+                <p class="feature__footer">
+                    special offer
+                </p>
+            </a>
+        </li>
+        <li class="grid__col-12 grid__col-xs-8">
+            <a href="#0" class="feature feature--half" style="background-image:url('https://placekitten.com/800/800');">
+                <p class="feature__footer">
+                    kittens
+                </p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
