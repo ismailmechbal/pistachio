@@ -57,7 +57,7 @@
         display: table;
         float: left;
         padding-top: 50%;
-        padding-top: ~'calc(50% - 1em)';
+        padding-top: ~'calc(50% - @{dimension-padding-lg})';
     }
 }
 
@@ -88,12 +88,14 @@
         background-size: 150%;
         background-position: top right;
 
-        .feature__side {
+        .feature__content {
             width: 100%;
             margin-top: 40%;
-            padding: 1em;
+            padding: @dimension-padding-lg;
             background-color: @colour-grey-lightest;
             background-image: none;
+            color: inherit;
+            text-shadow: none;
             .reset-filter();
         }
     }
@@ -102,20 +104,18 @@
 // Content options
 // ---
 
-.feature__side {
+.feature__content {
     .display-flex();
     .flex-direction(column);
     .align-items(flex-start);
     .align-self(stretch);
     .justify-content-center();
-    width: 45%;
-    margin-right: auto;
-    padding: 3em 10% 3em 2em;
-    padding-right: ~'calc(10% + 2em)';
-    background-color: transparent;
-    #gradient > .horizontal(fade(@colour-white, 90%), fade(@colour-white, 0%), 50%, 100%);
     .resetTextAlign();
     .inner-content-fix();
+    width: 40%;
+    margin-right: auto;
+    padding: @dimension-padding-xlg @dimension-padding-lg @dimension-padding-xlg @dimension-padding-xlg;
+    background-color: fade(@colour-white, 90%);
 
     // ie flexbox fix
     & > * {
@@ -123,19 +123,39 @@
     }
 }
 
+.feature__content--fade {
+    width: 50%;
+    padding: @dimension-padding-xlg 5% @dimension-padding-xlg @dimension-padding-xlg;
+    padding-right: ~'calc(5% + @{dimension-padding-xlg})';
+    background-color: transparent;
+    #gradient > .horizontal(fade(@colour-white, 90%), fade(@colour-white, 0%), 60%, 100%);
+}
+
+.feature__content--dark {
+    background-color: transparent;
+    color: @colour-white;
+    text-shadow: 1px 1px 3px @colour-grey-dark;
+
+    & > h1 {
+        color: @colour-white;
+    }
+}
+
 .feature__heading {
     margin: 0;
     padding: 0 1em;
     color: @colour-white;
-    text-shadow: 1px 1px 3px @text-colour;
+    text-shadow: 1px 1px 3px @colour-grey-dark;
+
+    // ie flexbox fix
+    max-width: 100%;
 }
 
 .feature__footer {
     .transition(background-color 0.05s ease-out);
     display: block;
     width: 100%;
-    margin-top: auto;
-    margin-bottom: 0;
+    margin: auto 0 0;
     padding: 0.5em 1em;
     background-color: rgba(255, 255, 255, 0.85);
     .resetTextAlign();

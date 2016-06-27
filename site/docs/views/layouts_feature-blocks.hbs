@@ -13,7 +13,23 @@
             <div class="grid">
                 <div class="grid__col-xs-12">
                     <h2 class="cd-title" id="banner">Feature banner</h2>
+                    <h3 class="cd-title">default</h3>
                     {{{ getFile 'site/docs/views/examples/features/banner.html' }}}
+                    {{#codeBlock}}
+                        {{{ getFile 'site/docs/views/examples/features/banner.html' }}}
+                    {{/codeBlock}}
+
+                    <h3 class="cd-title">with fade</h3>
+                    {{{ getFile 'site/docs/views/examples/features/banner-fade.html' }}}
+                    {{#codeBlock}}
+                        {{{ getFile 'site/docs/views/examples/features/banner-fade.html' }}}
+                    {{/codeBlock}}
+
+                    <h3 class="cd-title">with a dark background</h3>
+                    {{{ getFile 'site/docs/views/examples/features/banner-dark.html' }}}
+                    {{#codeBlock}}
+                        {{{ getFile 'site/docs/views/examples/features/banner-dark.html' }}}
+                    {{/codeBlock}}
                 </div>
             </div>
         </div>
