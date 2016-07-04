@@ -223,6 +223,7 @@
     padding: @dimension-padding-lg;
     background-color: @colour-white;
     border: 1px solid @colour-grey-lightest;
+    border-top: none;
     .border-bottom-radius(@dimension-border-radius);
 
     &:target,
@@ -230,7 +231,7 @@
         position: relative;
         visibility: visible;
         z-index: @z-index-top;
-        border-bottom: 0;
+        //border-bottom: 0;
         .border-bottom-radius(0);
     }
 }

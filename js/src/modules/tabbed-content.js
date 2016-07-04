@@ -77,9 +77,9 @@ module.exports = function($) {
             api.show($tabItems.first(), false);
 
             // remove any location in url so page doesn't scroll to open section
-            if (window.history && window.history.pushState) {
-                history.replaceState("", document.title, window.location.pathname);
-            }
+            // if (window.history && window.history.pushState) {
+            //     history.replaceState("", document.title, window.location.pathname);
+            // }
 
             // set up aria attributes
             $tabs.find('.nav').attr('role', 'tablist');
