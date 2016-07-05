@@ -73,13 +73,26 @@ module.exports = function($) {
                 }
             }
 
-            // show first content section by default
-            api.show($tabItems.first(), false);
+            // If there is a location hash in the url e.g. #ingredients and it matches the href of a tab, show it by default
+            if (window.location.hash) {
+                var location = window.location.hash;
 
-            // remove any location in url so page doesn't scroll to open section
-            // if (window.history && window.history.pushState) {
-            //     history.replaceState("", document.title, window.location.pathname);
-            // }
+                $tabItems.each(function() {
+                    if($(this).attr('href') === location) {
+                        api.show($(this), true);
+
+                        // remove location hash from url to avoid the :target css taking effect
+                        if (window.history && window.history.pushState) {
+                            history.replaceState("", document.title, window.location.pathname);
+                        } else {
+                            window.location.hash = '';
+                        }
+                    }
+                })
+            } else {
+                // show first content section by default if no location hash in url
+                api.show($tabItems.first(), false);
+            }
 
             // set up aria attributes
             $tabs.find('.nav').attr('role', 'tablist');
@@ -88,7 +101,7 @@ module.exports = function($) {
             $tabItems.each(function() {
                 var tabTarget = $(this).attr('href').substring(1, $(this).attr('href').length);
                 $(this).attr('aria-controls', tabTarget);
-                $(this).attr('id', 'controls-' + tabTarget)
+                $(this).attr('id', 'controls-' + tabTarget);
             });
 
             $tabs.find('.tabbed-content__section').each(function() {
