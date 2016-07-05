@@ -39,6 +39,23 @@
     .square(@dimension-sticker-xlg);
 }
 
+// Sticker position modifiers
+.sticker--outside-right {
+    .position(absolute, -1em, -1em, ~'', ~'');
+}
+
+.sticker--outside-left {
+    .position(absolute, -1em, ~'', ~'', -1em);
+}
+
+.sticker--inside-right {
+    .position(absolute, .5em, .5em, ~'', ~'');
+}
+
+.sticker--inside-left {
+    .position(absolute, .5em, ~'', ~'', .5em);
+}
+
 // Sticker colour modifiers
 .sticker--inverse {
     background-color: @colour-brand;
