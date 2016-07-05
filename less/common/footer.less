@@ -18,13 +18,6 @@ html.has-page-footer {
     .position(absolute, ~'', 0, 0, 0);
     padding-bottom: @footer-padding;
 
-    @media (max-width: @screen-xs-min) {
-        &:after {
-            right: auto;
-            left: 5px;
-        }
-    }
-
     &:after {
         content: "";
         display: block;
