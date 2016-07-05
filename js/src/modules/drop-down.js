@@ -34,8 +34,7 @@ module.exports = function($) {
                 initOffScreen();
             },
             hasDropdownMenu: function($elem) {
-                var block = $elem.data('p.block');
-                return block.element('menu').length;
+                return $($elem).find('.nav__dropdown__menu').length;
             },
             show: function($elem) {
                 var block = $elem.data('p.block');
@@ -56,16 +55,16 @@ module.exports = function($) {
             },
             resetAllBindings: function() {
                 $('html').off('click touchstart', api.resetDropDown);
-                $dropDownTabs.off('click', dropDownTabsBlock.elementSelector('item') + ":first", clickDropDown);
+                $dropDownTabs.off('click', clickDropDown);
                 $dropDownTabs.off('mouseenter', api.resetActiveStates);
-                $dropDownTabs.off('click', dropDownTabsBlock.elementSelector('item') + ":first", clickOffScreen);
+                $dropDownTabs.off('click', clickOffScreen);
                 api.resetActiveStates();
             },
             resetActiveStates: function() {
-                $dropDownTabs.each(function() {
+                $('html').find('.nav__dropdown').each(function() {
                     // remove aria attribute, focus state, and active class
                     if (api.hasDropdownMenu($(this))) {
-                        dropDownTabsBlock.element('item').attr('aria-expanded','false').blur();
+                        $(this).find('.nav__item, .nav__dropdown__item').attr('aria-expanded','false').blur();
                         $(this).removeClass('nav__dropdown--active');
                     }
                 });
@@ -92,7 +91,7 @@ module.exports = function($) {
             $('html').on('click touchstart', api.resetActiveStates);
 
             // bind click event to individual dropdown tabs
-            $dropDownTabs.on('click', dropDownTabsBlock.elementSelector('item') + ":first", clickDropDown);
+            $dropDownTabs.on('click', clickDropDown);
 
             // handle mouseenter (hover) event to close any drop down menus previously opened by touch or keyboard
             $dropDownTabs.on('mouseenter', api.resetActiveStates);
@@ -100,9 +99,9 @@ module.exports = function($) {
 
         function clickDropDown(e) {
             // only show dropdown menu if menu is present, otherwise, follow link normally
-            if (api.hasDropdownMenu($(this).parent())) {
+            if (api.hasDropdownMenu($(this))) {
                 api.resetActiveStates();
-                api.show($(this).parent());
+                api.show($(this));
                 e.preventDefault(); // Stop top level links from being followed
                 e.stopPropagation(); // Stop a click on the dropdown menu propagating up the DOM so it's not registered as a click on the page
             }
@@ -110,12 +109,12 @@ module.exports = function($) {
 
         function initOffScreen() {
             // bind click event to individual dropdown tabs
-            $dropDownTabs.on('click', dropDownTabsBlock.elementSelector('item') + ":first", clickOffScreen);
+            $dropDownTabs.on('click', clickOffScreen);
         }
 
         function clickOffScreen(e) {
-            if (api.hasDropdownMenu($(this).parent())) {
-                api.toggle($(this).parent());
+            if (api.hasDropdownMenu($(this))) {
+                api.toggle($(this));
                 e.preventDefault(); // Stop top level links from being followed
             }
         }

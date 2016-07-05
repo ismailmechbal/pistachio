@@ -1,5 +1,6 @@
-// Grab bootsrap mixins
+// Grab 3rd party mixins
 @import "npm://bootstrap/less/mixins";
+@import 'npm://reflex-grid/less/reflex/mixins';
 
 //
 //  States
@@ -489,6 +490,10 @@
 
     .outside(@depth: @dimension-shadow-lg) {
         .box-shadow(0 @depth @depth fade(@colour-black, 25%));
+    }
+
+    .outsideTop(@depth: @dimension-shadow-sm) {
+        .box-shadow(0 -@depth @dimension-shadow-lg fade(@colour-black, 25%));
     }
 }
 

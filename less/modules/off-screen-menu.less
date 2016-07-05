@@ -305,6 +305,19 @@
                 li {
                     margin: 0;
                     padding: 0;
+                    border: 0;
+                }
+
+                a {
+                    .nav-item-off-screen-style();
+                    color: @colour-accent;
+                    border: none;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        border: none;
+                    }
                 }
 
                 &:before {
@@ -314,23 +327,6 @@
                 .nav__dropdown__menu__sub__header {
                     margin-bottom: 0;
                     .font-size(1);
-                }
-
-                .nav__dropdown__menu__sub__header,
-                .nav__dropdown__menu__footer {
-                    border: none;
-
-                    a {
-                        .nav-item-off-screen-style();
-                        color: @colour-accent;
-                        border: none;
-
-                        &:hover,
-                        &:focus,
-                        &:active {
-                            border: none;
-                        }
-                    }
                 }
 
                 .nav__dropdown__menu__sub__content {
