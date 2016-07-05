@@ -1,12 +1,28 @@
-<nav role="navigation">
-    <h4 class="nav-heading hidden-sm hidden-md hidden-lg hidden-xlg">
+<nav role="navigation" class="hidden-sm hidden-md hidden-lg hidden-xlg">
+    <h4 class="nav-heading">
         information:
     </h4>
-    <ul class="hidden-sm hidden-md hidden-lg hidden-xlg nav">
+    <ul class="nav">
         <li>
-            <a class="nav__item" href="#0">
-                help
-            </a>
+            <ul class="nav nav--dropdown nav--dropdown-inline" data-p-module="dropDown" data-dropdown-offscreen="xxs,xs">
+                <li class="nav__dropdown nav__dropdown--list">
+                    <a id="category1" class="nav__dropdown__item" href="#0">
+                        help
+                    </a>
+                    <ul class="nav__dropdown__menu">
+                        <li>
+                            <a href="#0">
+                                account help
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                get in touch
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </li>
         <li>
             <a class="nav__item" href="#0">
