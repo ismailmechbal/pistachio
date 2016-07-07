@@ -51,7 +51,6 @@ module.exports = function($) {
                 }
             },
             resetAllBindings: function() {
-                console.log('reset all bindings');
                 $('html').off('click touchstart', api.resetActiveStates);
                 $dropDownTabs.off('click', clickDropDown);
                 $dropDownTabs.off('mouseenter', api.resetActiveStates);
