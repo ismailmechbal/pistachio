@@ -16,8 +16,7 @@ module.exports = function($) {
 
     return function($dropDown) {
         var dropDownBlock = $dropDown.block('nav').data('p.block');
-        var $dropDownTabs = dropDownBlock.element('dropdown').block('nav__dropdown');
-        var dropDownTabsBlock = $dropDownTabs.data('p.block');
+        var $dropDownTabs = dropDownBlock.element('dropdown__item').block('nav__dropdown');
 
         var dropDownOffScreenBreakpoints = dropDownBlock.getAttr('data-dropdown-offscreen');
         var dropDownOffScreenArray = dropDownOffScreenBreakpoints ? dropDownOffScreenBreakpoints.split(",") : null;
@@ -37,35 +36,34 @@ module.exports = function($) {
                 return $($elem).find('.nav__dropdown__menu').length;
             },
             show: function($elem) {
-                var block = $elem.data('p.block');
-                block.addModifier('active');
-                block.element('item').attr('aria-expanded','true');
+                $elem.addClass('nav__dropdown--active');
+                $elem.find('.nav__dropdown__item').attr('aria-expanded','true');
             },
             hide: function($elem) {
-                var block = $elem.data('p.block');
-                block.removeModifier('active');
-                block.element('item').attr('aria-expanded','false');
+                $elem.removeClass('nav__dropdown--active');
+                $elem.find('.nav__dropdown__item').attr('aria-expanded','false');
             },
             toggle: function($elem) {
-                if ($elem.data('p.block').hasModifier('active')) {
+                if ($elem.hasClass('nav__dropdown--active')) {
                     api.hide($elem);
                 } else {
                     api.show($elem);
                 }
             },
             resetAllBindings: function() {
-                $('html').off('click touchstart', api.resetDropDown);
+                console.log('reset all bindings');
+                $('html').off('click touchstart', api.resetActiveStates);
                 $dropDownTabs.off('click', clickDropDown);
                 $dropDownTabs.off('mouseenter', api.resetActiveStates);
                 $dropDownTabs.off('click', clickOffScreen);
                 api.resetActiveStates();
             },
             resetActiveStates: function() {
-                $('html').find('.nav__dropdown').each(function() {
+                $('html').find('.nav__dropdown__item').each(function() {
                     // remove aria attribute, focus state, and active class
-                    if (api.hasDropdownMenu($(this))) {
-                        $(this).find('.nav__item, .nav__dropdown__item').attr('aria-expanded','false').blur();
-                        $(this).removeClass('nav__dropdown--active');
+                    if (api.hasDropdownMenu($(this).parent())) {
+                        $(this).parent().find('.nav__item, .nav__dropdown__item').attr('aria-expanded','false').blur();
+                        $(this).parent().removeClass('nav__dropdown--active');
                     }
                 });
             }
@@ -99,9 +97,9 @@ module.exports = function($) {
 
         function clickDropDown(e) {
             // only show dropdown menu if menu is present, otherwise, follow link normally
-            if (api.hasDropdownMenu($(this))) {
+            if (api.hasDropdownMenu($(this).parent())) {
                 api.resetActiveStates();
-                api.show($(this));
+                api.show($(this).parent());
                 e.preventDefault(); // Stop top level links from being followed
                 e.stopPropagation(); // Stop a click on the dropdown menu propagating up the DOM so it's not registered as a click on the page
             }
@@ -113,9 +111,11 @@ module.exports = function($) {
         }
 
         function clickOffScreen(e) {
-            if (api.hasDropdownMenu($(this))) {
-                api.toggle($(this));
+            if (api.hasDropdownMenu($(this).parent())) {
+                $('html').off(); // Remove dropdown menu functionality which closes all open menus when html is clicked
+                api.toggle($(this).parent());
                 e.preventDefault(); // Stop top level links from being followed
+                e.stopPropagation(); // Stop a click on the dropdown menu propagating up the DOM so it's not registered as a click on the page
             }
         }
 
