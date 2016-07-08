@@ -36,6 +36,15 @@ app.get('/layouts/off-screen-menu', function(req, res) {
     }));
 });
 
+app.get('/layouts/feature-blocks', function(req, res) {
+    var page = 'layouts_feature-blocks';
+
+    res.render(page, pageContext.get('/layouts/feature-blocks', {
+        layout: 'blank',
+        title: page.replace(/(-|_)/g, ' ')
+    }));
+});
+
 // Top level page routing
 app.get('/:page', function(req, res) {
     var page = req.params.page;
