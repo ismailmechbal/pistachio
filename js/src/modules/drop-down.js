@@ -88,15 +88,15 @@ module.exports = function($) {
             $('html').on('click touchstart', api.resetActiveStates);
 
             // bind click event to individual dropdown tabs
-            $dropDownTabs.on('click', clickDropDown);
+            $dropDownTabs.on('click touchstart', clickDropDown);
 
             // handle mouseenter (hover) event to close any drop down menus previously opened by touch or keyboard
             $dropDownTabs.on('mouseenter', api.resetActiveStates);
         }
 
         function clickDropDown(e) {
-            // only show dropdown menu if menu is present, otherwise, follow link normally
-            if (api.hasDropdownMenu($(this).parent())) {
+            // only show dropdown menu if menu is present in DOM, but not yet visible, otherwise, follow link normally
+            if (api.hasDropdownMenu($(this).parent()) && $(this).siblings('.nav__dropdown__menu').css('visibility').toLowerCase() !== 'visible') {
                 api.resetActiveStates();
                 api.show($(this).parent());
                 e.preventDefault(); // Stop top level links from being followed
