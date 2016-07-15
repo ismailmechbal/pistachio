@@ -88,15 +88,15 @@ module.exports = function($) {
             $('html').on('click touchstart', api.resetActiveStates);
 
             // bind click event to individual dropdown tabs
-            $dropDownTabs.on('click', clickDropDown);
+            $dropDownTabs.on('click touchstart', clickDropDown);
 
             // handle mouseenter (hover) event to close any drop down menus previously opened by touch or keyboard
             $dropDownTabs.on('mouseenter', api.resetActiveStates);
         }
 
         function clickDropDown(e) {
-            // only show dropdown menu if menu is present, otherwise, follow link normally
-            if (api.hasDropdownMenu($(this).parent())) {
+            // only show dropdown menu if menu is present in DOM, but not yet visible, otherwise, follow link normally
+            if (api.hasDropdownMenu($(this).parent()) && $(this).siblings('.nav__dropdown__menu').css('visibility').toLowerCase() !== 'visible') {
                 api.resetActiveStates();
                 api.show($(this).parent());
                 e.preventDefault(); // Stop top level links from being followed
@@ -107,6 +107,9 @@ module.exports = function($) {
         function initOffScreen() {
             // bind click event to individual dropdown tabs
             $dropDownTabs.on('click', clickOffScreen);
+
+            // bind sub menu functionality
+            $('.nav__dropdown__menu__sub__header').off('click').on('click', clickSubMenu);
         }
 
         function clickOffScreen(e) {
@@ -115,6 +118,19 @@ module.exports = function($) {
                 api.toggle($(this).parent());
                 e.preventDefault(); // Stop top level links from being followed
                 e.stopPropagation(); // Stop a click on the dropdown menu propagating up the DOM so it's not registered as a click on the page
+            }
+        }
+
+        function clickSubMenu(e) {
+            var subMenu = $(this).siblings().find('.nav__dropdown__menu__sub__content');
+            if (subMenu.length) {
+                if ($(this).hasClass('nav__dropdown__menu__sub__header--active')) {
+                    subMenu.removeClass('nav__dropdown__menu__sub__content--active');
+                    $(this).removeClass('nav__dropdown__menu__sub__header--active');
+                } else {
+                    subMenu.addClass('nav__dropdown__menu__sub__content--active');
+                    $(this).addClass('nav__dropdown__menu__sub__header--active');
+                }
             }
         }
 

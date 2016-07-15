@@ -327,10 +327,38 @@
                 .nav__dropdown__menu__sub__header {
                     margin-bottom: 0;
                     .font-size(1);
+
+                    a {
+                        padding-left: @nav-spacing-lg;
+                        padding-right: @nav-spacing-lg;
+                    }
+
+                    // down chevron icon for dropdowns
+                    &:after {
+                        content: "\f107";
+                        .icon();
+                        .position(absolute, 1.25em, @dimension-padding-base, ~'', ~'');
+                        margin-left: .5em;
+                        .off-screen-menu-transition();
+                    }
+
+                    &.nav__dropdown__menu__sub__header--active {
+                        &:after {
+                            .rotate(-180deg);
+                        }
+                    }
                 }
 
                 .nav__dropdown__menu__sub__content {
                     display: none;
+
+                    a {
+                        padding-left: (@nav-spacing-lg * 2);
+                    }
+                }
+
+                .nav__dropdown__menu__sub__content--active {
+                    display: block;
                 }
             }
         }
