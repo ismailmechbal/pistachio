@@ -39,6 +39,7 @@ For versioned releases of modules modify the url like so: `https://pistachio-cdn
  - [Alerts](https://pistachio-cdn.graze.com/dev/css/alerts.css)
  - [Breadcrumb](https://pistachio-cdn.graze.com/dev/css/breadcrumb.css)
  - [Buttons](https://pistachio-cdn.graze.com/dev/css/buttons.css)
+ - [Features](https://pistachio-cdn.graze.com/dev/css/features.css)
  - [Forms](https://pistachio-cdn.graze.com/dev/css/forms.css)
  - [Navigation](https://pistachio-cdn.graze.com/dev/css/navigation.css)
  - [Off-screen-menu](https://pistachio-cdn.graze.com/dev/css/off-screen-menu.css)
@@ -46,7 +47,7 @@ For versioned releases of modules modify the url like so: `https://pistachio-cdn
  - [Pagination](https://pistachio-cdn.graze.com/dev/css/pagination.css)
  - [Panels](https://pistachio-cdn.graze.com/dev/css/panels.css)
  - [Progress](https://pistachio-cdn.graze.com/dev/css/progress.css)
- - [Ribbons](https://pistachio-cdn.graze.com/dev/css/ribbons.css)
+ - [Sashes](https://pistachio-cdn.graze.com/dev/css/sashes.css)
  - [Stickers](https://pistachio-cdn.graze.com/dev/css/stickers.css)
  - [Tables](https://pistachio-cdn.graze.com/dev/css/tables.css)
 
