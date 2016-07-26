@@ -41,6 +41,7 @@ For versioned releases of modules modify the url like so: `https://pistachio-cdn
  - [Buttons](https://pistachio-cdn.graze.com/dev/css/buttons.css)
  - [Features](https://pistachio-cdn.graze.com/dev/css/features.css)
  - [Forms](https://pistachio-cdn.graze.com/dev/css/forms.css)
+ - [Health-badges](https://pistachio-cdn.graze.com/dev/css/health-badges.css)
  - [Navigation](https://pistachio-cdn.graze.com/dev/css/navigation.css)
  - [Off-screen-menu](https://pistachio-cdn.graze.com/dev/css/off-screen-menu.css)
  - [Page-sections](https://pistachio-cdn.graze.com/dev/css/page-sections.css)

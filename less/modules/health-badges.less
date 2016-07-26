@@ -1,0 +1,81 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+@import '../includes/health-badge-svg';
+
+//
+// Health badges
+// ===
+
+// Base badge
+.health-badge {
+    display: inline-block;
+    vertical-align: middle;
+    .square(3.5em);
+    .graze-font();
+    padding-top: 0.8em;
+    font-size: 1.2em;
+    color: @colour-white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100% center;
+
+    &:hover {
+        color: @colour-white;
+        text-decoration: none;
+    }
+
+    &:focus {
+        background-color: @colour-white;
+        .box-shadow(0 0 0 2px @colour-brand);
+    }
+
+    & + & {
+        margin-left: -.75em;
+    }
+}
+
+// badge modifers
+.health-badge--fibre-uk {
+    .svg-data-uri-bg(~"@{health-fibre-uk}");
+}
+
+.health-badge--fibre-us {
+    .svg-data-uri-bg(~"@{health-fibre-us}");
+}
+
+.health-badge--fruit-uk {
+    .svg-data-uri-bg(~"@{health-fruit-uk}");
+}
+
+.health-badge--fruit-us {
+    .svg-data-uri-bg(~"@{health-fruit-us}");
+}
+
+.health-badge--star-uk {
+    .svg-data-uri-bg(~"@{health-star-uk}");
+}
+
+.health-badge--star-us {
+    .svg-data-uri-bg(~"@{health-star-us}");
+}
+
+.health-badge--calories {
+    .svg-data-uri-bg(~"@{health-calories}");
+}
+
+.health-badge--protein {
+    .svg-data-uri-bg(~"@{health-protein}");
+}
+
+.health-badge--vitamins {
+    .svg-data-uri-bg(~"@{health-vitamins}");
+}
+
+.health-badge--wholegrain {
+    .svg-data-uri-bg(~"@{health-wholegrain}");
+}
