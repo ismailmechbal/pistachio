@@ -590,3 +590,25 @@
     background-position: center center;
     background-size: cover;
 }
+
+.background-contain() {
+    background-repeat: no-repeat;
+    background-position: 100% center;
+    background-size: contain;
+}
+
+//
+// Svg
+// ---
+
+// Generates a background-image data uri with maximum cross browser compatibility
+// Based on format discussed here: https://codepen.io/tigt/post/optimizing-svgs-in-data-uris
+
+.svg-data-uri-bg(@svg) {
+    @svg-quotes: replace(~"@{svg}", '"', "'", "g");
+    @svg-hash: replace(~"@{svg-quotes}", "#", "%23", "g");
+    @svg-less: replace(~"@{svg-hash}", "<", "%3C", "g");
+    @svg-more: replace(~"@{svg-less}", ">", "%3E", "g");
+    @svg-amp: replace(~"@{svg-more}", "&", "%26", "g");
+    background-image: url(~"data:image/svg+xml, @{svg-amp}");
+}

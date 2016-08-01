@@ -24,9 +24,7 @@ html.has-page-footer {
         .position(absolute, ~'', 15px, -10px, ~'');
         height: 50px;
         width: 130px;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 100% center;
-        background-image: url(@graze-logo-with-stroke);
+        .background-contain();
+        .svg-data-uri-bg(~"@{graze-logo-with-stroke}");
     }
 }

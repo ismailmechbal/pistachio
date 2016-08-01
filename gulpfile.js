@@ -28,6 +28,7 @@ var lessFileList = [
     './less/modules/buttons.less',
     './less/modules/features.less',
     './less/modules/forms.less',
+    './less/modules/health-badges.less',
     './less/modules/navigation.less',
     './less/modules/off-screen-menu.less',
     './less/modules/page-sections.less',
