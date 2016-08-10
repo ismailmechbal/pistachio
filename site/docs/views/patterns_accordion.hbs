@@ -10,25 +10,14 @@
 
 <p class="cd-text">If JavaScript is unavailable for some reason, an accordion will default to being expanded and will appear as regular page content.</p>
 
-<h2 class="cd-text cd-title">single accordion</h2>
+<h2 class="cd-text cd-title">accordion options</h2>
+<h3 class="cd-text cd-title">default state</h3>
+<p class="cd-text">To default accordion sections to the open state, add the data attribute <code>data-accordion-open</code> to the relevant <code>accordion__section</code>.</p>
+
+<h2 class="cd-text cd-title">basic accordion</h2>
 <p class="cd-text">
-    Suitable for content that really should be hidden until the user specifically wants to see it such as extra info. Relies on the presence of the <code>data-p-module="accordion"</code> attribute along with the classes and markup order specified below.
+    The classic model for presenting a faq. Accordions can be used to make browsing content heavy pages a bit easier or to separate out different options on a page.
 </p>
-
-{{{ getFile 'site/docs/views/examples/accordion/basic-accordion.html' }}}
-
-{{#codeBlock}}
-    {{{ getFile 'site/docs/views/examples/accordion/basic-accordion.html' }}}
-{{/codeBlock}}
-
-<h2 class="cd-text cd-title">multi accordion</h2>
-<p class="cd-text">
-    The classic model for presenting a faq. This multi accordion can be used to make browsing content heavy pages a bit easier or to separate out different options on a page.
-</p>
-<p class="cd-text">
-    The markup for this is essentially the same as for a single accordion except you nest multiple <code>accordion__section</code>s inside a single <code>accordion</code> element.
-</p>
-
 {{{ getFile 'site/docs/views/examples/accordion/multi-accordion.html' }}}
 
 {{#codeBlock}}

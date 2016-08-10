@@ -116,14 +116,22 @@ module.exports = function($) {
                 if(accordionBlockBreakpointsArray) {
                     if ($.inArray(viewportDetection.getViewportSize(), accordionBlockBreakpointsArray) > -1) {
                         api.enable($(this));
-                        api.hide($(this));
+                        if($(this).attr('data-accordion-open')) {
+                            api.show($(this));
+                        } else {
+                            api.hide($(this));
+                        }
                     } else {
                         api.disable($(this));
                         api.show($(this));
                     }
                 } else {
                     api.enable($(this));
-                    api.hide($(this));
+                    if($(this).attr('data-accordion-open')) {
+                        api.show($(this));
+                    } else {
+                        api.hide($(this));
+                    }
                 }
             });
 
