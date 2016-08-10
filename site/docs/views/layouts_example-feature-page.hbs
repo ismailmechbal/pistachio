@@ -1,42 +1,92 @@
-<div class="page-section page-section--sm">
-    <div class="container">
-        <div class="row">
-            <div class="grid">
-                <div class="grid__col-xs-12">
-                    {{{ getFile 'site/docs/views/examples/features/banner-img.html' }}}
+<input type="checkbox" id="off-screen-trigger" class="off-screen-trigger" data-p-module="offScreen">
+
+<div class="off-screen-header">
+    {{{ getFile 'site/docs/views/examples/nav/nav-top-tabs.html' }}}
+    <div class="page-section page-section--xs">
+        <div class="container">
+            <nav class="grid grid--bleed grid--align-center">
+                <div class="off-screen-trigger-spacer grid__col-auto">
+                    <label for="off-screen-trigger" class="off-screen-trigger-label" onclick="">
+                        <i class="fa fa-reorder fa-2x"></i>
+                        <span class="sr-only">toggle menu</span>
+                    </label>
                 </div>
+                <div class="grid__col-auto grid--direction-row grid--justify-center off-screen-header__logo">
+                    <a href="#0" class="off-screen-header__logo__link link-img">
+                        <img src="https://cdn.graze.com/static/15-1460367531/images/graze/en/header/logo.png" class="off-screen-header__logo__link__img" alt="home page">
+                    </a>
+                </div>
+                {{{ getFile 'site/docs/views/examples/nav/nav-on-screen.html' }}}
             </div>
-            {{{ getFile 'site/docs/views/examples/features/square-trio-text.html' }}}
         </div>
     </div>
 </div>
-<div class="page-section">
-    <div class="container">
-        <div class="row">
-            <div class="grid">
-                <div class="grid__col-xs-12">
-                    <h2 class="margin-reset">why shop with graze?</h2>
+
+<div class="off-screen-menu">
+    <div class="page-section page-section--alternate page-section--bleed">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    {{{ getFile 'site/docs/views/examples/nav/nav-off-screen.html' }}}
+                    {{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd-offscreen.html' }}}
                 </div>
             </div>
-            {{{ getFile 'site/docs/views/examples/features/value-proposition.html' }}}
         </div>
     </div>
 </div>
-<div class="page-section page-section--sm">
-    <div class="container">
-        <div class="row">
-            <div class="grid">
-                <div class="grid__col-xs-12">
-                    <h3 class="margin-reset">latest collections</h3>
+
+<div class="page-wrapper">
+    <div class="page-section page-section--hint page-section--bleed">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p><span class="fa fa-exclamation-circle"></span> Delivery cut off for christmas deliveries is the 21st December! So order those <a href="#0">mince pie flapjacks</a> now!</p>
                 </div>
             </div>
-            {{{ getFile 'site/docs/views/examples/features/half-2-1-heading.html' }}}
-            <div class="grid">
-                <div class="grid__col-xs-12">
-                    <h3 class="margin-reset">blog: top tips and snack hacks from our taste experts</h3>
+        </div>
+    </div>
+    <div class="page-section page-section--sm">
+        <div class="container">
+            <div class="row">
+                <div class="grid">
+                    <div class="grid__col-xs-12">
+                        {{{ getFile 'site/docs/views/examples/features/banner-img.html' }}}
+                    </div>
                 </div>
+                {{{ getFile 'site/docs/views/examples/features/square-trio-text.html' }}}
             </div>
-            {{{ getFile 'site/docs/views/examples/features/half-trio-heading.html' }}}
+        </div>
+    </div>
+    <div class="page-section page-section--sm">
+        <div class="container">
+            <div class="row">
+                <div class="grid">
+                    <div class="grid__col-xs-12">
+                        <h2 class="margin-reset">why shop with graze?</h2>
+                    </div>
+                </div>
+                {{{ getFile 'site/docs/views/examples/features/value-proposition.html' }}}
+            </div>
+        </div>
+    </div>
+    <div class="page-section page-section--sm">
+        <div class="container">
+            <div class="row">
+                <div class="grid">
+                    <div class="grid__col-xs-12">
+                        <h3 class="margin-reset">latest collections</h3>
+                    </div>
+                </div>
+                {{{ getFile 'site/docs/views/examples/features/half-2-1-heading.html' }}}
+                <div class="grid">
+                    <div class="grid__col-xs-12">
+                        <h3 class="margin-reset">blog: top tips and snack hacks from our taste experts</h3>
+                    </div>
+                </div>
+                {{{ getFile 'site/docs/views/examples/features/half-trio-heading.html' }}}
+            </div>
         </div>
     </div>
 </div>
+
+{{{ getFile 'site/docs/views/examples/footer.html' }}}

@@ -36,10 +36,10 @@ app.get('/layouts/off-screen-menu', function(req, res) {
     }));
 });
 
-app.get('/layouts/feature-blocks', function(req, res) {
-    var page = 'layouts_feature-blocks';
+app.get('/layouts/example-feature-page', function(req, res) {
+    var page = 'layouts_example-feature-page';
 
-    res.render(page, pageContext.get('/layouts/feature-blocks', {
+    res.render(page, pageContext.get('/layouts/example-feature-page', {
         layout: 'blank',
         title: page.replace(/(-|_)/g, ' ')
     }));
