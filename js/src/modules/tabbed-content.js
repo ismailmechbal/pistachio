@@ -41,12 +41,13 @@ module.exports = function($) {
                 if(tabStackedBreakpointsArray) {
                     if ($.inArray(viewportDetection.getViewportSize(), tabStackedBreakpointsArray) > -1) {
                         $(contentId).insertAfter($elem);
-                        if(shouldScrollTo) {
-                            $('body').stop().animate({ scrollTop: $elem.offset().top }, 200);
-                        }
                     } else {
                         $('.tabbed-content__section-wrap').append($(contentId));
                     }
+                }
+
+                if(shouldScrollTo) {
+                    $('body').stop().animate({ scrollTop: $elem.offset().top }, 300);
                 }
             },
             resetTabs: function() {
@@ -60,6 +61,14 @@ module.exports = function($) {
             },
             resetContent: function() {
                 $tabs.find('.tabbed-content__section').removeClass('tabbed-content__section--active');
+            },
+            resetLocationHash: function() {
+                // remove location hash from url to avoid the :target css taking effect
+                if (window.history && window.history.pushState) {
+                    history.replaceState("", document.title, window.location.pathname);
+                } else {
+                    window.location.hash = '';
+                }
             }
         }
 
@@ -80,19 +89,25 @@ module.exports = function($) {
                 $tabItems.each(function() {
                     if($(this).attr('href') === location) {
                         api.show($(this), true);
-
-                        // remove location hash from url to avoid the :target css taking effect
-                        if (window.history && window.history.pushState) {
-                            history.replaceState("", document.title, window.location.pathname);
-                        } else {
-                            window.location.hash = '';
-                        }
+                        api.resetLocationHash();
                     }
                 })
             } else {
                 // show first content section by default if no location hash in url
                 api.show($tabItems.first(), false);
             }
+
+            // update tabbed content when location hash changes (usually because a link to the anchor was clicked)
+            $(window).on('hashchange', function() {
+                var location = window.location.hash;
+
+                $tabItems.each(function() {
+                    if($(this).attr('href') === location) {
+                        api.show($(this), true);
+                        api.resetLocationHash();
+                    }
+                })
+            });
 
             // set up aria attributes
             $tabs.find('.nav').attr('role', 'tablist');
