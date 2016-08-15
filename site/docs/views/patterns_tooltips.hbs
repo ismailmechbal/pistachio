@@ -1,0 +1,39 @@
+<h1 class="cd-text cd-title">Tooltips</h1>
+<p class="cd-text">Tooltips are intended for use in providing a supplemental description or explanation about the action of a link or button where that meaning can not be determined from the text of the link, button, or icon alone.</p>
+<p class="cd-text">Tooltips should be used sparingly and only when they actually provide meaningful information or a compelling reason to interact with the element. You should always strive to make actions as understandable as possible without the use of tooltips where possible. Tooltip text isn't always visible, and should be supplemental info that users don't have to read but can provide extra useful information if required.</p>
+
+<h2 class="cd-text cd-title">usage notes</h2>
+<ul class="cd-text">
+    <li>There is no JavaScript required as these tooltips work via CSS entirely.</li>
+    <li>On desktop tooltips appear on hover or focus.</li>
+    <li>On touch screens tooltips appear when the element is touched.</li>
+    <li>The content of the tooltip is provided by the value of the <code>aria-label</code> attribute on an element with the <code>tooltip</code> class.</li>
+    <li>If the <code>tooltip</code> class is present but the <code>aria-label</code> attribute is missing or empty, the tooltip will not appear.</li>
+    <li>Using <code>aria-label</code> makes these more accessible because assistive devices will read this label instead of any text inside the link or button.</li>
+</ul>
+
+<h2 class="cd-text cd-title">position</h2>
+<p class="cd-text">By default all tooltips are positioned to the bottom of the element but it might sometimes be desireable to change this postion where elements are positioned to the far left, right or bottom of the viewport and would otherwise be cropped. Where this is the case, you can use these positioning classes.</p>
+{{{ getFile 'site/docs/views/examples/tooltips/position-top.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/tooltips/position-top.html' }}}
+{{/codeBlock}}
+{{{ getFile 'site/docs/views/examples/tooltips/position-bottom.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/tooltips/position-bottom.html' }}}
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">examples</h2>
+<h3 class="cd-text cd-title">button tooltip</h3>
+<p class="cd-text">Tooltips should not be applied to a button but you should instead add a separate button specifically for the tooltip. Always strive to make your buttons as understandable as possible without using a tooltip.</p>
+{{{ getFile 'site/docs/views/examples/tooltips/icon-tooltip.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/tooltips/icon-tooltip.html' }}}
+{{/codeBlock}}
+
+<h3 class="cd-text cd-title">link tooltip</h3>
+<p class="cd-text">Where you are using an icon for a link, a tooltip can be added to provide extra information.</p>
+{{{ getFile 'site/docs/views/examples/tooltips/icon.html' }}}
+{{#codeBlock}}
+    {{{ getFile 'site/docs/views/examples/tooltips/icon.html' }}}
+{{/codeBlock}}

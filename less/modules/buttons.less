@@ -32,6 +32,21 @@
     .button-style(@colour-accent, @colour-white, darken(@colour-accent, 5%), @colour-accent);
 }
 
+// used when adding a tooltip only button - see tooltips.less
+.button--tooltip {
+    background-image: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+        background-image: none;
+        background-color: @colour-grey-lightest;
+        border: 1px solid @colour-grey-lightest;
+    }
+}
+
 //
 // Button Sizes
 // ===
@@ -126,6 +141,8 @@
 // ---
 
 .button-group {
+    display: inline-block;
+    margin-right: .4em;
     margin-bottom: 1em;
 
     .button,
