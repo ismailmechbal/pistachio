@@ -41,13 +41,15 @@ module.exports = function($) {
                 if(tabStackedBreakpointsArray) {
                     if ($.inArray(viewportDetection.getViewportSize(), tabStackedBreakpointsArray) > -1) {
                         $(contentId).insertAfter($elem);
+                        if(shouldScrollTo) {
+                            $('body').stop().animate({ scrollTop: $elem.offset().top }, 300);
+                        }
                     } else {
                         $('.tabbed-content__section-wrap').append($(contentId));
+                        if(shouldScrollTo) {
+                            $('body').stop().animate({ scrollTop: $elem.offset().top - 20 }, 300);
+                        }
                     }
-                }
-
-                if(shouldScrollTo) {
-                    $('body').stop().animate({ scrollTop: $elem.offset().top }, 300);
                 }
             },
             resetTabs: function() {
@@ -62,12 +64,12 @@ module.exports = function($) {
             resetContent: function() {
                 $tabs.find('.tabbed-content__section').removeClass('tabbed-content__section--active');
             },
-            resetLocationHash: function() {
+            resetLocationHash: function(href) {
                 // remove location hash from url to avoid the :target css taking effect
                 if (window.history && window.history.pushState) {
-                    history.replaceState("", document.title, window.location.pathname);
+                    history.replaceState(null, null, href);
                 } else {
-                    window.location.hash = '';
+                    window.location.hash = href;
                 }
             }
         }
@@ -89,7 +91,7 @@ module.exports = function($) {
                 $tabItems.each(function() {
                     if($(this).attr('href') === location) {
                         api.show($(this), true);
-                        api.resetLocationHash();
+                        api.resetLocationHash($(this).attr('href'));
                     }
                 })
             } else {
@@ -104,8 +106,7 @@ module.exports = function($) {
                 $tabItems.each(function() {
                     if($(this).attr('href') === location) {
                         api.show($(this), true);
-                        window.history.back(); // ensure back button doesn't lead to hidden hash
-                        api.resetLocationHash();
+                        api.resetLocationHash($(this).attr('href'));
                     }
                 })
             });
@@ -129,9 +130,15 @@ module.exports = function($) {
             // valid keycodes are [1, 13] - mouseclick and enter key
             $tabItems.on('click keydown', function(e) {
                 if ([1, 13].indexOf(e.which) > -1) {
-                    var anchor = $(this).attr('href');
+                    if(tabStackedBreakpointsArray) {
+                        if ($.inArray(viewportDetection.getViewportSize(), tabStackedBreakpointsArray) > -1) {
+                            api.show($(this), true);
+                        } else {
+                            api.show($(this), false);
+                        }
+                    }
 
-                    api.show($(this), true);
+                    api.resetLocationHash($(this).attr('href'));
                     e.preventDefault();
                 }
             });
