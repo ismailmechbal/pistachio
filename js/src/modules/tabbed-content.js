@@ -104,6 +104,7 @@ module.exports = function($) {
                 $tabItems.each(function() {
                     if($(this).attr('href') === location) {
                         api.show($(this), true);
+                        window.history.back(); // ensure back button doesn't lead to hidden hash
                         api.resetLocationHash();
                     }
                 })
