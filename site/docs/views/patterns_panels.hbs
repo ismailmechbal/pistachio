@@ -44,21 +44,22 @@
             </div>
         </div>
 
-        <h4 class="cd-text cd-title">brand colour</h4>
+        <h4 class="cd-text cd-title">feature panel</h4>
+        <p class="cd-text">Use a feature panel where you want the content to stand out. For example, to draw attention to an important section in a longer list of content.</p>
         <div class="row">
             <div class="col-xs-4">
-                {{{ getFile 'site/docs/views/examples/panels/panel-brand.html' }}}
+                {{{ getFile 'site/docs/views/examples/panels/panel-feature.html' }}}
             </div>
 
             <div class="col-xs-8">
                 {{#codeBlock}}
-                    {{{ getFile 'site/docs/views/examples/panels/panel-brand.html' }}}
+                    {{{ getFile 'site/docs/views/examples/panels/panel-feature.html' }}}
                 {{/codeBlock}}
             </div>
         </div>
 
         <h2 class="cd-text cd-title">clickable panels</h2>
-        <p class="cd-text">Clickable panels are used to showcase content or individual products. The whole panel is a link.</p>
+        <p class="cd-text">Clickable panels are used to showcase content or individual products. The whole panel is a link and to signify that is is clickable, you should apply the <code>.panel--shadow</code> class.</p>
 
         <div class="row">
             <div class="col-xs-4">
@@ -115,7 +116,7 @@
         {{/codeBlock}}
 
         <h4 class="cd-text cd-title">panel grid with clickable panels</h4>
-        <p class="cd-text">Suitable for a panel grid where each panel only has one possible action. Use a link for your panels and the whole panel becomes clickable.</p>
+        <p class="cd-text">Suitable for a panel grid where each panel only has one possible action. Use a link for your panels and the whole panel becomes clickable. To signify that is is clickable, you should apply the <code>.grid__panel--shadow</code> class.</p>
 
         {{{ getFile 'site/docs/views/examples/panels/panel-click-grid.html' }}}
 
