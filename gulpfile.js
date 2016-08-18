@@ -35,6 +35,7 @@ var lessFileList = [
     './less/modules/pagination.less',
     './less/modules/panels.less',
     './less/modules/progress.less',
+    './less/modules/ribbons.less',
     './less/modules/sashes.less',
     './less/modules/stickers.less',
     './less/modules/tables.less',
