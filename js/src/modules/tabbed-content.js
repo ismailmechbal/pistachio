@@ -64,7 +64,11 @@ module.exports = function($) {
             resetContent: function() {
                 $tabs.find('.tabbed-content__section').removeClass('tabbed-content__section--active');
             },
-            resetLocationHash: function(href) {
+            resetLocationHash: function(href, shouldRemove) {
+                if (shouldRemove === true) {
+                    href = window.location.pathname;
+                }
+
                 // remove location hash from url to avoid the :target css taking effect
                 if (window.history && window.history.pushState) {
                     history.replaceState(null, null, href);
@@ -91,7 +95,7 @@ module.exports = function($) {
                 $tabItems.each(function() {
                     if($(this).attr('href') === location) {
                         api.show($(this), true);
-                        api.resetLocationHash($(this).attr('href'));
+                        api.resetLocationHash($(this).attr('href'), true);
                     }
                 })
             } else {
