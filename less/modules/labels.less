@@ -1,0 +1,65 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+
+//
+// Labels
+// ===
+
+// default label
+
+.label {
+    display: inline-block;
+    position: relative;
+    padding: @dimension-padding-sm @dimension-padding-base;
+    margin: 0 .5em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: @colour-grey-light;
+    color: @colour-white;
+
+    &:before,
+    &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border: .3em solid @colour-grey-light;
+        border-top-width: .75em;
+        border-bottom-width: .75em;
+    }
+
+    &:before {
+        .position(absolute, 0, ~'', 0, -.5em);
+        border-left-color: transparent;
+    }
+
+    &:after {
+        .position(absolute, 0, -.5em, 0, ~'');
+        border-right-color: transparent;
+    }
+}
+
+// Modifiers
+
+.label--feature {
+    background-color: @colour-brand-berry;
+
+    &:before,
+    &:after {
+        border-top-color: @colour-brand-berry;
+        border-bottom-color: @colour-brand-berry;
+    }
+
+    &:before {
+        border-right-color: @colour-brand-berry;
+    }
+
+    &:after {
+        border-left-color: @colour-brand-berry;
+    }
+}
+
+

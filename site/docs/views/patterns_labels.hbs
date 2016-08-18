@@ -1,0 +1,20 @@
+<h1 class="cd-text cd-title">labels</h1>
+<p class="cd-text">Labels are used to visually distinguish or "call out" items in a list. One example use case would be to highlight that a particular list item has a special status. They should only be used inside paragraphs or as standalone <code>&lt;span&gt;</code></p>
+
+<h2 class="cd-text cd-title">inline</h2>
+<p>Labels work fine <span class="label label--feature">inline</span> because they take up the same space as regular paragraph text.</p>
+
+<h2 class="cd-text cd-title">default</h2>
+<p><span class="label">label</span></p>
+{{#codeBlock 'xml margin-reset'}}
+    <span class="label">label</span>
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">feature</h2>
+<p><span class="label label--feature">feature</span></p>
+{{#codeBlock 'xml margin-reset'}}
+    <span class="label label--feature">feature</span>
+{{/codeBlock}}
+
+<h2 class="cd-text cd-title">example usage</h2>
+{{{ getFile 'site/docs/views/examples/labels/label-grid-example.html' }}}

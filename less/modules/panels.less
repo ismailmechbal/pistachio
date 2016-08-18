@@ -26,23 +26,6 @@ a.panel {
 }
 
 //
-// Modifiers
-// ---
-.panel--shadow {
-    .drop-shadow.outside();
-}
-
-.panel--alternate {
-    background-color: @colour-grey-lightest;
-}
-
-.panel--brand {
-    background-color: @colour-brand;
-    border-color: @colour-grey;
-    color: @colour-white;
-}
-
-//
 // Child elements
 // ---
 .panel__header-img {
@@ -54,6 +37,10 @@ a.panel {
     border-radius: (@dimension-border-radius - 1) (@dimension-border-radius - 1) 0 0;
     background-color: @colour-grey-lightest;
     font-weight: @font-weight-strong;
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
 }
 
 .panel__footer {
@@ -65,6 +52,27 @@ a.panel {
 .panel__body {
     .inner-content-fix();
     padding: @dimension-padding-lg;
+}
+
+//
+// Modifiers
+// ---
+.panel--shadow {
+    .drop-shadow.outside();
+}
+
+.panel--alternate {
+    background-color: @colour-grey-lightest;
+}
+
+.panel--feature {
+    border-color: @colour-brand-berry;
+
+    .panel__header,
+    .panel__footer {
+        background-color: @colour-brand-berry;
+        color: @colour-white;
+    }
 }
 
 //
@@ -135,7 +143,7 @@ a.grid__panel {
 
 .grid__panel-footer {
     .align-items(center);
-    padding: 0 @dimension-padding-lg @dimension-padding-lg;
+    padding: @dimension-padding-sm @dimension-padding-lg @dimension-padding-lg;
     border: 1px solid @colour-grey-lighter;
     border-top: none;
     border-radius: 0 0 @dimension-border-radius @dimension-border-radius;
