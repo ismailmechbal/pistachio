@@ -224,12 +224,23 @@
     border-top: none;
     .border-bottom-radius(@dimension-border-radius);
 
-    &:target,
     &--active {
         position: relative;
         visibility: visible;
         z-index: @z-index-top;
         .border-bottom-radius(0);
+    }
+}
+
+// when there's no js, make it work with :target
+.experience-core {
+    .tabbed-content__section {
+        &:target {
+            position: relative;
+            visibility: visible;
+            z-index: @z-index-top;
+            .border-bottom-radius(0);
+        }
     }
 }
 
