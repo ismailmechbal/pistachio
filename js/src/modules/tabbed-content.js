@@ -42,12 +42,12 @@ module.exports = function($) {
                     if ($.inArray(viewportDetection.getViewportSize(), tabStackedBreakpointsArray) > -1) {
                         $(contentId).insertAfter($elem);
                         if(shouldScrollTo) {
-                            $('body').stop().animate({ scrollTop: $elem.offset().top }, 300);
+                            $('body, html').stop().animate({ scrollTop: $elem.offset().top }, 300);
                         }
                     } else {
                         $('.tabbed-content__section-wrap').append($(contentId));
                         if(shouldScrollTo) {
-                            $('body').stop().animate({ scrollTop: $elem.offset().top - 20 }, 300);
+                            $('body, html').stop().animate({ scrollTop: $elem.offset().top - 20 }, 300);
                         }
                     }
                 }
@@ -64,17 +64,29 @@ module.exports = function($) {
             resetContent: function() {
                 $tabs.find('.tabbed-content__section').removeClass('tabbed-content__section--active');
             },
-            resetLocationHash: function(href, shouldRemove) {
-                if (shouldRemove === true) {
-                    href = window.location.pathname;
-                }
-
+            resetLocationHash: function(href) {
                 // remove location hash from url to avoid the :target css taking effect
                 if (window.history && window.history.pushState) {
                     history.replaceState(null, null, href);
                 } else {
                     window.location.hash = href;
                 }
+            },
+            handleLocationHashChange: function() {
+                var location = window.location.hash;
+
+                $tabItems.each(function() {
+                    if($(this).attr('href') === location) {
+                        if(tabStackedBreakpointsArray) {
+                            if ($.inArray(viewportDetection.getViewportSize(), tabStackedBreakpointsArray) > -1) {
+                                api.show($(this), true);
+                            } else {
+                                api.show($(this), false);
+                            }
+                        }
+                        api.resetLocationHash($(this).attr('href'));
+                    }
+                })
             }
         }
 
@@ -90,14 +102,7 @@ module.exports = function($) {
 
             // If there is a location hash in the url e.g. #ingredients and it matches the href of a tab, show it by default
             if (window.location.hash) {
-                var location = window.location.hash;
-
-                $tabItems.each(function() {
-                    if($(this).attr('href') === location) {
-                        api.show($(this), true);
-                        api.resetLocationHash($(this).attr('href'), true);
-                    }
-                })
+                api.handleLocationHashChange();
             } else {
                 // show first content section by default if no location hash in url
                 api.show($tabItems.first(), false);
@@ -105,14 +110,23 @@ module.exports = function($) {
 
             // update tabbed content when location hash changes (usually because a link to the anchor was clicked)
             $(window).on('hashchange', function() {
-                var location = window.location.hash;
+                api.handleLocationHashChange();
+            });
 
-                $tabItems.each(function() {
-                    if($(this).attr('href') === location) {
-                        api.show($(this), true);
-                        api.resetLocationHash($(this).attr('href'));
+            // bind click and keydown event listener
+            // valid keycodes are [1, 13] - mouseclick and enter key
+            $tabItems.on('click keydown', function(e) {
+                if ([1, 13].indexOf(e.which) > -1) {
+                    if(tabStackedBreakpointsArray) {
+                        if ($.inArray(viewportDetection.getViewportSize(), tabStackedBreakpointsArray) > -1) {
+                            api.show($(this), true);
+                        } else {
+                            api.show($(this), false);
+                        }
                     }
-                })
+                    api.resetLocationHash($(this).attr('href'));
+                    e.preventDefault();
+                }
             });
 
             // set up aria attributes
@@ -128,23 +142,6 @@ module.exports = function($) {
             $tabs.find('.tabbed-content__section').each(function() {
                 $(this).attr('role', 'tabpanel');
                 $(this).attr('aria-labelledby', 'controls-' + $(this).attr('id'));
-            });
-
-            // bind click and keydown event listener
-            // valid keycodes are [1, 13] - mouseclick and enter key
-            $tabItems.on('click keydown', function(e) {
-                if ([1, 13].indexOf(e.which) > -1) {
-                    if(tabStackedBreakpointsArray) {
-                        if ($.inArray(viewportDetection.getViewportSize(), tabStackedBreakpointsArray) > -1) {
-                            api.show($(this), true);
-                        } else {
-                            api.show($(this), false);
-                        }
-                    }
-
-                    api.resetLocationHash($(this).attr('href'));
-                    e.preventDefault();
-                }
             });
         }
 
