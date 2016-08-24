@@ -1,0 +1,157 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+
+//
+// Tooltips
+// ===
+
+//
+// Base tooltip
+// ---
+
+.tooltip {
+    position: relative;
+    .transition(opacity 0s 1s ease);
+    vertical-align: middle;
+
+    &:before,
+    &:after {
+        .position(absolute, 100%, ~'', ~'', 50%);
+        .transition(~'visibility @{tooltip-animation-delay} @{tooltip-animation-length} ease, opacity @{tooltip-animation-delay} @{tooltip-animation-length} ease');
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        display: block;
+    }
+
+    &:before {
+        content: '';
+        z-index: (@z-index-top + 1);
+        .translate(-50%, 1px);
+        border: @tooltip-arrow-size solid transparent;
+        border-top: none;
+        border-bottom-color: @tooltip-bg-colour;
+    }
+
+    &:after {
+        content: attr(aria-label);
+        z-index: @z-index-top;
+        .translate(-50%, @tooltip-arrow-size);
+        width: auto;
+        min-width: @tooltip-min-width;
+        max-width: @tooltip-max-width;
+        padding: @dimension-padding-base @dimension-padding-lg;
+        background-color: @tooltip-bg-colour;
+        color: @tooltip-text-colour;
+        border-radius: @dimension-border-radius;
+        .drop-shadow.outside();
+
+        // reset any inherited font styles so tooltips always look the same
+        .font-size(.875);
+        font-family: @font-family-base;
+        font-weight: @font-weight-base;
+        line-height: @line-height-base;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+
+        &:before,
+        &:after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    // If no aria-label is provided, do not show tooltip
+    &[aria-label=''],
+    &:not([aria-label]) {
+        &:before,
+        &:after {
+            display: none !important;
+        }
+    }
+}
+
+//
+// Position modifiers
+// ---
+
+.tooltip--bottom-left {
+    &:after {
+        .translate(0, @tooltip-arrow-size);
+        left: 0;
+    }
+}
+
+.tooltip--bottom-right {
+    &:after {
+        .translate(0, @tooltip-arrow-size);
+        left: auto;
+        right: 0;
+    }
+}
+
+.tooltip--top {
+    &:before,
+    &:after {
+        top: auto;
+        bottom: 100%;
+    }
+
+    &:before {
+        border: @tooltip-arrow-size solid transparent;
+        border-bottom: none;
+        border-top-color: @tooltip-bg-colour;
+        .translate(-50%, -1px);
+    }
+    &:after {
+        .translate(-50%, -@tooltip-arrow-size);
+    }
+}
+
+.tooltip--top-left {
+    &:before,
+    &:after {
+        top: auto;
+        bottom: 100%;
+    }
+
+    &:before {
+        border: @tooltip-arrow-size solid transparent;
+        border-bottom: none;
+        border-top-color: @tooltip-bg-colour;
+        .translate(-50%, -1px);
+    }
+
+    &:after {
+        .translate(0, -@tooltip-arrow-size);
+        left: 0;
+    }
+}
+
+.tooltip--top-right {
+    &:before,
+    &:after {
+        top: auto;
+        bottom: 100%;
+    }
+
+    &:before {
+        border: @tooltip-arrow-size solid transparent;
+        border-bottom: none;
+        border-top-color: @tooltip-bg-colour;
+        .translate(-50%, -1px);
+    }
+
+    &:after {
+        .translate(0, -@tooltip-arrow-size);
+        left: auto;
+        right: 0;
+    }
+}

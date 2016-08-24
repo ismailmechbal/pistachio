@@ -39,6 +39,7 @@ var lessFileList = [
     './less/modules/sashes.less',
     './less/modules/stickers.less',
     './less/modules/tables.less',
+    './less/modules/tooltips.less',
 
     // Docs
     './less/docs.less',

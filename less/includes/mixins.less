@@ -491,10 +491,6 @@
     .outside(@depth: @dimension-shadow-lg) {
         .box-shadow(0 @depth @depth fade(@colour-black, 25%));
     }
-
-    .outsideTop(@depth: @dimension-shadow-sm) {
-        .box-shadow(0 -@depth @dimension-shadow-lg fade(@colour-black, 25%));
-    }
 }
 
 //
@@ -559,21 +555,6 @@
      -moz-transition: -moz-transform @duration @animtation;
        -o-transition: -o-transform @duration @animtation;
           transition: transform @duration @animtation;
-}
-
-.off-screen-text-link() {
-    display: block;
-    padding-top: @dimension-padding-lg;
-    padding-bottom: @dimension-padding-lg;
-    padding-left: @dimension-padding-lg;
-    .font-size(1);
-
-    &:hover,
-    &:focus,
-    &:active {
-        .tab-focus-state(@colour-grey-lightest, @text-colour);
-        .focus-reset();
-    }
 }
 
 .clip-path(@clip-path) {

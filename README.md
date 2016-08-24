@@ -52,6 +52,7 @@ For versioned releases of modules modify the url like so: `https://pistachio-cdn
  - [Sashes](https://pistachio-cdn.graze.com/dev/css/sashes.css)
  - [Stickers](https://pistachio-cdn.graze.com/dev/css/stickers.css)
  - [Tables](https://pistachio-cdn.graze.com/dev/css/tables.css)
+ - [Tooltips](https://pistachio-cdn.graze.com/dev/css/tooltips.css)
 
 ## JavaScript
 
