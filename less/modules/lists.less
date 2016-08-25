@@ -1,0 +1,58 @@
+// Includes
+@import '../includes/variables';
+@import '../includes/mixins';
+@import '../includes/svg';
+
+//
+// List classes
+// ===
+
+//
+// Utility Lists
+// ---
+.list-unstyled {
+    .list-unstyled-style();
+}
+
+.list-inline {
+    .list-inline-style();
+}
+
+.list-inverse {
+    li {
+        color: @colour-white;
+
+        &:before {
+            color: @colour-white;
+        }
+    }
+}
+
+//
+// Ticked Lists
+// ---
+@list-ticked-size: 2em;
+.list-ticked {
+    padding-left: @list-ticked-size * 1.5;
+    li {
+        position: relative;
+        padding-top: @list-ticked-size / 2;
+        padding-bottom: @list-ticked-size / 2;
+        &::before {
+            content: '';
+            .position(absolute, 0.75em, 0, 0, -(@list-ticked-size * 1.5));
+            height: @list-ticked-size;
+            width: @list-ticked-size;
+            margin: 0;
+            .svg-data-uri-bg-colored(@graze-tick, @text-colour);
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 100% center;
+        }
+    }
+}
+
+.list-ticked--brand > li::before {
+    .svg-data-uri-bg-colored(@graze-tick, @colour-brand);
+}
