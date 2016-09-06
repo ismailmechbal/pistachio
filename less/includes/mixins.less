@@ -593,3 +593,8 @@
     @svg-amp: replace(~"@{svg-more}", "&", "%26", "g");
     background-image: url(~"data:image/svg+xml, @{svg-amp}");
 }
+
+.svg-data-uri-bg-colored(@svg, @color) {
+    @svg-colored: replace(~"@{svg}",'(#\w{6})', ~"@{color}", 'g');
+    .svg-data-uri-bg(@svg-colored)
+}
