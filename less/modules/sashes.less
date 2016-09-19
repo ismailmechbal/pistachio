@@ -69,6 +69,18 @@
     }
 }
 
+// Sash colours
+.sash--highlight {
+    &:before,
+    &:after {
+        background: darken(@colour-brand-lemon, 20%);
+    }
+
+    .sash__content {
+        background: @colour-brand-lemon;
+    }
+}
+
 // Sash content
 .sash__content {
     background: @colour-error;
