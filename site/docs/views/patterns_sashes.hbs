@@ -1,9 +1,9 @@
 <h1 class="cd-text cd-title">sash</h1>
 <p class="cd-text">A good use of sashes is to call out extra information such as a discounted price, or a preferred choice. These sashes are intended for use with <a href="panels">panels</a> or <a href="features">feature blocks</a>.</p>
 
+<h2 class="cd-text cd-title">position</h2>
 <p class="cd-text">A left or right modifier is a requirement for a working sash.</p>
-
-<h4 class="cd-text cd-title">sash left</h4>
+<h3 class="cd-text cd-title">sash left</h3>
 <div class="row">
     <div class="col-xs-5">
         <a class="panel panel--shadow" href="javascript:void(0);">
@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<h4 class="cd-text cd-title">sash right</h4>
+<h3 class="cd-text cd-title">sash right</h3>
 <div class="row">
     <div class="col-xs-5">
         <a class="panel panel--shadow" href="javascript:void(0);">
@@ -45,6 +45,31 @@
     <div class="col-xs-7">
         {{#codeBlock 'xml margin-reset'}}
             {{{ getFile 'site/docs/views/examples/sashes/sash-right.html' }}}
+        {{/codeBlock}}
+    </div>
+</div>
+
+<h2 class="cd-text cd-title">colour</h2>
+<p class="cd-text">The default sash is typically used to communicate promotional information e.g. a discount. The highlight variant is typically used to highlight a new or promoted item.</p>
+<h3 class="cd-text cd-title">sash highlight</h3>
+<div class="row">
+    <div class="col-xs-5">
+        <a class="panel panel--shadow" href="javascript:void(0);">
+            {{{ getFile 'site/docs/views/examples/sashes/sash-highlight.html' }}}
+            <img src="/images/feature/half-cashew.jpg" class="img-responsive panel__header-img">
+            <div class="panel__body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, repellat.
+                </p>
+            </div>
+            <div class="panel__footer">
+                £2.99
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-7">
+        {{#codeBlock 'xml margin-reset'}}
+            {{{ getFile 'site/docs/views/examples/sashes/sash-highlight.html' }}}
         {{/codeBlock}}
     </div>
 </div>
