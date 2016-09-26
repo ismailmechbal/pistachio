@@ -125,9 +125,11 @@ gulp.task('build:stats', ['build:less'], function(cb) {
         gulp.src('./public/css/' + cssFileName)
         .pipe(stylestats({
             type: 'json',
-            outfile: true
+            outfile: true,
+            published: false,
+            paths: false
         }))
-        .pipe(gulp.dest('./tests/results'))
+        .pipe(gulp.dest('./statistics/css'))
         .on('end', function() {
             log.info('Generated stats for ' + cssFileName);
 
@@ -188,8 +190,8 @@ gulp.task('publish', ['build'], function() {
         log.info('<script src="https://pistachio-cdn.graze.com/' + version + '/js/pistachio.js" integrity="sha256-' + checksum('./public/js/pistachio.js', 'sha256') + '" crossorigin="anonymous"></script>');
     }
 
-    // Find all files in the public folders.
-    return gulp.src(['./public/**/*.*'], { base: './' })
+    // Find all files in the public folders, and the stylestats statistics.
+    return gulp.src(['./public/**/*.*', './statistics/css/*.json'], { base: './' })
         // Update the path to what we want on s3.
         .pipe(rename(function (file) {
             file.dirname = version + '/' + file.dirname.replace('public/', '');
