@@ -26,25 +26,6 @@ app.get('/', function(req, res) {
     }));
 });
 
-// Custom layout page routing
-app.get('/layouts/off-screen-menu', function(req, res) {
-    var page = 'layouts_off-screen-menu';
-
-    res.render(page, pageContext.get('/layouts/off-screen-menu', {
-        layout: 'blank',
-        title: page.replace(/(-|_)/g, ' ')
-    }));
-});
-
-app.get('/layouts/feature-blocks', function(req, res) {
-    var page = 'layouts_feature-blocks';
-
-    res.render(page, pageContext.get('/layouts/feature-blocks', {
-        layout: 'blank',
-        title: page.replace(/(-|_)/g, ' ')
-    }));
-});
-
 // Top level page routing
 app.get('/:page', function(req, res) {
     var page = req.params.page;
@@ -61,10 +42,19 @@ app.get('/:page', function(req, res) {
 });
 
 // Subpage routing
+var blankPages = [
+    'layouts_off-screen-menu'
+];
+
 app.get('/:page/:subpage', function(req, res) {
     var page = req.params.page;
     var subpage = req.params.subpage;
     var pageName = [page, subpage].join('_');
+    var layoutName = 'layout';
+
+    if (blankPages.indexOf(pageName) > -1) {
+        layoutName = 'blank';
+    }
 
     if (pages.pageExists(pageName)) {
         var pageList = pages.getAllPageInfo(page, subpage);
@@ -72,6 +62,7 @@ app.get('/:page/:subpage', function(req, res) {
         return res.render(pageName, pageContext.get(page, {
             title: pageName.replace(/(-|_)/g, ' '),
             pages: pageList,
+            layout: layoutName,
             subpages: pageList[page].subpages
         }));
     }
