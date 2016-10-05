@@ -232,13 +232,20 @@
                 .nav__item {
                     .nav-item-off-screen-style();
                 }
+
+                &:last-of-type {
+                    .nav__item {
+                        border-bottom: none;
+                    }
+                }
             }
         }
 
         .nav-heading {
             display: block;
-            .margins(2, 0, 0, 0);
-            padding-bottom: @dimension-padding-lg;
+            .margins(0, -1, 0, -1);
+            padding: @dimension-padding-lg;
+            background-color: @colour-grey-lightest;
             border-bottom: @border-default;
         }
 
@@ -251,6 +258,7 @@
             .nav__dropdown {
                 display: block;
                 float: none;
+                clear: both;
                 margin: 0;
 
                 &.nav__dropdown--active {
@@ -287,6 +295,13 @@
                         .off-screen-menu-transition();
                     }
                 }
+
+                .nav__dropdown__item--single {
+                    &:after {
+                        display: block;
+                        .rotate(-90deg);
+                    }
+                }
             }
 
             .nav__dropdown__menu {
@@ -294,6 +309,7 @@
                 display: none;
                 visibility: hidden;
                 max-height: 0px;
+                min-width: 100%;
                 margin: 0;
                 padding: 0;
                 border-radius: 0;
@@ -310,8 +326,8 @@
 
                 a {
                     .nav-item-off-screen-style();
-                    color: @colour-accent;
                     border: none;
+                    padding-left: @dimension-padding-lg;
 
                     &:hover,
                     &:focus,
@@ -360,6 +376,15 @@
                 .nav__dropdown__menu__sub__content--active {
                     display: block;
                 }
+            }
+
+            .nav__dropdown__menu--wide {
+                width: 100%;
+            }
+
+            .nav__dropdown__menu__col {
+                width: 100%;
+                float: none;
             }
         }
 

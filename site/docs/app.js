@@ -43,7 +43,8 @@ app.get('/:page', function(req, res) {
 
 // Subpage routing
 var blankPages = [
-    'layouts_off-screen-menu'
+    'layouts_off-screen-menu',
+    'layouts_global-nav'
 ];
 
 app.get('/:page/:subpage', function(req, res) {
