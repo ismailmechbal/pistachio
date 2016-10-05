@@ -54,7 +54,7 @@
     {{{ getFile 'site/docs/views/examples/nav/nav-tabs-inverse.html' }}}
 {{/codeBlock}}
 
-<h2 class="cd-text cd-title">Dropdown menu</h2>
+<h2 class="cd-text cd-title">Dropdown menus</h2>
 <p class="cd-text">Dropdown menus require pistachio.js support and the presence of the <code>data-p-module="dropDown"</code> attribute along with the classes and markup order as shown here.
 
 In addition to the basic show/hide functionality, the Dropdown JavaScript also applies the following:</p>
@@ -67,14 +67,7 @@ In addition to the basic show/hide functionality, the Dropdown JavaScript also a
 
 <p class="cd-text">If JavaScript is unavailable for some reason, the dropdown will still work with css only as far as the browser support allows.</p>
 
-<p class="cd-text">Dropdown menus should always be full width of the page. Check the <a href="/layouts/drop-down-menu">dropdown menu example page</a> for a markup example.</p>
-
-<div class="page-section page-section--alternate page-section--bleed">
-{{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd.html' }}}
-</div>
-
-<h2 class="cd-text cd-title">Dropdown list</h2>
-<p class="cd-text">A navigation item or a button can be a dropdown list. This should never replace a <code>select</code> element in a form, but is suitable for small collections of links in a navigation element. All of the guidance around JavaScript in dropdown menus applies to dropdown lists too.</p>
+<p class="cd-text">A navigation item or a button can be a dropdown list. This should never replace a <code>select</code> element in a form, but is suitable for small collections of links in a navigation element.
 
 <h3 class="cd-text cd-title">left alignment</h3>
 {{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd-list-left.html' }}}
@@ -93,6 +86,15 @@ In addition to the basic show/hide functionality, the Dropdown JavaScript also a
 {{#codeBlock}}
     {{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd-list-button.html' }}}
 {{/codeBlock}}
+
+<h3 class="cd-text cd-title">full width</h3>
+<p class="cd-text">For dropdown menus with a lot of content, you can use the full width of the page with some optional layout classes. Check the <a href="/layouts/full-width-drop-down-menu">dropdown menu example page</a> for a markup example.</p>
+
+<div class="page-section page-section--alternate page-section--bleed">
+{{{ getFile 'site/docs/views/examples/nav/nav-tabs-dd.html' }}}
+</div>
+
+<p class="cd-text">A navigation item or a button can be a dropdown list. This should never replace a <code>select</code> element in a form, but is suitable for small collections of links in a navigation element.
 
 <h2 class="cd-text cd-title">tabbed nav with content</h2>
 <p class="cd-text">Tabbed content requires pistachio.js support and the presence of the <code>data-p-module="tabs"</code> attribute along with the classes and markup order as shown on the <a href="/layouts/tabbed-content">tabbed-content layout</a> page.

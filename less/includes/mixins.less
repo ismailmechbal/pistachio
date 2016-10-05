@@ -120,7 +120,7 @@
         @text: @colour-brand,
         @hover-text: @text-colour,
         @bg: transparent,
-        @hover-bg: @colour-grey-lighter,
+        @hover-bg: @colour-grey-lightest,
         @border: @colour-grey-lighter,
         @focus-border: @colour-grey-lighter
     ) {
@@ -182,7 +182,7 @@
     &:hover,
     &:focus,
     &:active {
-        .tab-focus-state(@colour-grey-lightest, @text-colour);
+        .tab-focus-state(@colour-grey-hint, @text-colour);
         .focus-reset();
         border: none;
         border-bottom: 1px solid @border-colour;
