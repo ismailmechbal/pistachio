@@ -11,7 +11,7 @@
 .health-badge {
     display: inline-block;
     vertical-align: middle;
-    .square(3.5em);
+    .square(3.0em);
     .graze-font();
     padding-top: 0.8em;
     font-size: 1.2em;
@@ -23,6 +23,11 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 100% center;
+    margin-right: -.75em;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
 
     &:hover {
         color: @colour-white;
@@ -32,10 +37,6 @@
     &:focus {
         background-color: @colour-white;
         .box-shadow(0 0 0 2px @colour-brand);
-    }
-
-    & + & {
-        margin-left: -.75em;
     }
 }
 
